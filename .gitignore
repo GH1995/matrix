@@ -1,0 +1,11 @@
+*.pdf
+*.fdb_latexmk
+*.thm
+*.log
+*.toc
+*.out
+*.aux
+*.fls
+*.synctex.gz
+deeplearningbook-chinese/
+elementary-math/
