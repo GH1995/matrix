@@ -1,0 +1,198 @@
+\chapter{矩阵基础知识}
+\label{cha:矩阵基础知识}
+
+\section{线性空间与线性映射}
+\label{sec:线性空间与线性映射}
+
+\subsection{线性空间与线性子空间}
+\label{sub:线性空间与线性子空间}
+
+\begin{definition}[线性空间/向量空间]
+    \begin{itemize}
+        \item $V$在数域$F$
+        \item 加法运算
+        \item 数乘运算
+    \end{itemize}
+\end{definition}
+
+\begin{definition}[基 基变换公式 基变换下向量坐标的变换公式]
+    $\Ve_1, \ldots, \Ve_n \in \SetC^n$
+    若$\Vx$在该基下的线性表示为
+    $$\Vx = \Sx_1 \Vv_1 + \ldots + \Sx_n\Vv_n$$
+    则称$\Sx_1, \ldots, \Sx_n$为向量$\Vx$在该坐标系中的\emph{坐标}或\emph{分量}，并将向量$\Vx$记为$$\Vx = \begin{bmatrix}
+        \Sx_1  \\
+            \vdots \\
+            \Sx_n  \\
+    \end{bmatrix}$$
+    \begin{gather}
+        \Vv_1 = \Sa_{11}\Vu_1 + \ldots + \Sa_{n1}\Vu_n \\
+        \vdots \\
+        \Vv_1 = \Sa_{11}\Vu_1 + \ldots + \Sa_{n1}\Vu_n
+    \end{gather}
+    称矩阵
+    \[ \MA = \begin{bmatrix}
+        \Sa_{11} & \ldots & \Sa_{1n} \\
+        \vdots   &        & \vdots   \\
+        \Sa_{n1} & \ldots & \Sa_{nn}
+    \end{bmatrix} \]
+    为由基$\Vu_1, \ldots, \Vu_n$变为基$\Vv_1, \ldots, \Vv_n$的\emph{过渡矩阵}，并称
+    $$
+    \left[\Vv_1, \ldots, \Vv_n\right] = \left[\Vu_1, \ldots, \Vu_n \right] \MA
+    $$
+    为\emph{基变换公式}。
+
+    某个向量在$\Vu_1, \ldots, \Vu_n$和基$\Vv_1, \ldots, \Vv_n$下的坐标分别为$\left[\Sx_1, \ldots, \Sx_n \right]^T$和$\left[\Sy_1, \ldots, \Sy_n \right]^T$，则称
+    $\begin{bmatrix}
+        \Sx_1 \\
+        \vdots \\
+        \Sx_n
+    \end{bmatrix} = \MA \begin{bmatrix}
+        \Sy_1 \\
+        \vdots \\
+        \Sy_n
+    \end{bmatrix}$或$\begin{bmatrix}
+        \Sy_1 \\
+        \vdots \\
+        \Sy_n
+    \end{bmatrix} = \MA^{-1} \begin{bmatrix}
+        \Sx_1 \\
+                                 \vdots \\
+                                 \Sx_n
+    \end{bmatrix}$ \\
+                             为\emph{基变换下向量坐标的变换公式}。
+\end{definition}
+
+\begin{definition}[线性子空间]
+    向量组$\Vx_1, \ldots, \Vx_n$生成的子空间，记为$\textbf{span}\{\Vx_1, \ldots, \Vx_n\}$
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\subsection{Euclid空间、酉空间}
+\label{sub:Euclid空间、酉空间}
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\subsection{线性映射及其矩阵表示}
+\label{sub:线性映射及其矩阵表示}
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\subsection{几个重要的线性子空间及其性质}
+\label{sub:几个重要的线性子空间及其性质}
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\section{矩阵的数值特征}
+\label{sec:矩阵的数值特征}
+
+\subsection{秩}
+\label{sub:秩}
+
+\begin{definition}
+\end{definition}
+
+\subsection{行列式}
+\label{sub:行列式}
+
+\begin{definition}
+\end{definition}
+
+\subsection{迹}
+\label{sub:迹}
+
+\begin{definition}
+\end{definition}
+
+\subsection{特征值、特征向量和特征多项式}
+\label{sub:特征值、特征向量和特征多项式}
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+
+\section{矩阵的标准形}
+\label{sec:矩阵的标准形}
+
+\subsection{等价变换下的标准形}
+\label{sub:等价变换下的标准形}
+
+\begin{definition}
+\end{definition}
+
+\subsection{相似变换下的Jordan标准形}
+\label{sub:相似变换下的Jordan标准形}
+
+\subsubsection{Schur分解定理}
+\label{ssub:schurfen_jie_ding_li_}
+
+\subsubsection{Jordan分解定理}
+\label{ssub:jordanfen_jie_ding_li_}
+
+\begin{definition}
+\end{definition}
+
+\subsubsection{矩阵的可对角化}
+\label{ssub:ju_zhen_de_ke_dui_jiao_hua_}
+
+\begin{definition}
+\end{definition}
+
+\subsection{相合变换下的标准形}
+\label{sub:相合变换下的标准形}
+
+\begin{definition}
+\end{definition}
+
+\section{半正定和正定矩阵}
+\label{sec:半正定和正定矩阵}
+
+\section{矩阵求逆公式}
+\label{sec:矩阵求逆公式}
+
+\subsection{Leverrier-Faddeev算法}
+\label{sub:Leverrier-Faddeev算法}
+
+\subsection{分块求逆公式}
+\label{sub:分块求逆公式}
+
+\subsection{Sherman-Motrison-Woodbury公式}
+\label{sub:Sherman-Motrison-Woodbury公式}
+
+\section{Hadamard与Kronecker积}
+\label{sec:Hadamard与Kronecker积}
+
+\subsection{Hadamard积及其性质}
+\label{sub:Hadamard积及其性质}
+
+\begin{definition}
+\end{definition}
+
+\subsection{Kronecker积及其性质}
+\label{sub:Kronecker积及其性质}
+
+
+\begin{definition}
+\end{definition}
+
+\begin{definition}
+\end{definition}
+

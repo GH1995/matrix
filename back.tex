@@ -1,0 +1,233 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{amsmath}
+\usepackage{subfigure}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{booktabs}
+\usepackage{amssymb}
+
+\include{math_symbol}
+
+\newtheorem{defi}{定义}
+\newtheorem{thm}{定理}
+\newtheorem{lem}{引理}
+\newtheorem{exam}{例子}
+\newcommand{\ud}{\mathrm{d}}
+
+\begin{document}
+\section{矩阵序列和矩阵级数}
+\label{sec:ju_zhen_xu_lie_he_ju_zhen_ji_shu_}
+
+\subsubsection{矩阵序列}
+\label{ssub:ju_zhen_xu_lie_}
+\begin{defi}[矩阵序列]
+    \[
+        \{\MA_k\}
+    \]
+\end{defi}
+
+\begin{defi}[广义矩阵范数]
+    设$\norm{\cdot}$为$\SetC^{m \times n}$上的广义矩阵范数。
+\end{defi}
+
+\begin{defi}[收敛矩阵]
+    设$\MA \in \SetC^{n \times n}$，称$\MA$为收敛矩阵，如果$\MA^k \to \MO$
+\end{defi}
+
+\begin{defi}[$\MA^{(k)}$的界]
+    \[
+    |\Sa_{ij}^{(k)}| < C, \quad i = 1, \cdots, m; j = 1, \cdots, n,
+    \]
+称$C$为$\MA^{(k)}$的界。
+\end{defi}
+
+\subsubsection{矩阵级数}
+\label{ssub:ju_zhen_ji_shu_}
+
+\begin{defi}[矩阵级数]
+    $\{\MA^{(k)}\}$所形成的无穷和$$\MA^{(0)} + \MA^{(1)} + \cdots +\MA^{(k)} + \cdots$$为矩阵级数，记为$$\sum_{k=0}^{\infty} \MA^{(k)}$$
+\end{defi}
+
+\begin{defi}[收敛与绝对收敛]
+    设$\MA^{(k)} = \left( a_{ij}^{(k)} \right) \in \SetC^{m \times n}$, $\MS^{(k)} = \left( s_{ij}^{(k)} \right) \in \SetC^{m \times n}$。
+\end{defi}
+
+\subsubsection{矩阵幂级数}
+\label{ssub:ju_zhen_mi_ji_shu_}
+
+\begin{thm}
+    设$\MA \in \SetC^{n \times n}$，则 $\MA$ 的幂级数
+    \[
+        \sum_{k=0}^{\infty} \MA^k = \MI + \MA + \MA^2 + \cdots + \MA^k + \cdots
+    \]
+收敛的充要条件是$\MA$为收敛矩阵，且在收敛时其和为$(\MI - \MA)^{-1}$。
+\end{thm}
+
+\begin{thm}
+    设$\norm{\cdot}$为$\SetC^{n \times n}$上的矩阵范数。若$\MA \in \SetC^{n \times n}$满足$\norm{A} < 1$，则对任意非负整数$m$，有
+    \[
+        \norm{(\MI - \MA)^{-1} - \sum_{k=0}^m \MA^k} \le \frac{\norm{\MA}^{m+1}}{1-\norm{\MA}}
+    \]
+\end{thm}
+
+
+\begin{thm}
+   设幂级数
+    \[
+        f(z) = \sum_{k=0}^{\infty} c_kz^k
+    \]
+的收敛半径为$r$。若$\MA \in \SetC^{n \times n}$满足$\rho(\MA) < r$，则矩阵幂级数
+    \[
+        \sum_{k=0}^{\infty} c_k\MA^k
+    \]
+绝对收敛；若$\rho(\MA)>r$，则矩阵幂级数发散。
+\end{thm}
+
+% ----------------------------------
+\section{矩阵函数}
+\label{sec:ju_zhen_han_shu_}
+
+\subsubsection{定义与性质}
+\label{ssub:ding_yi_yu_xing_zhi_}
+
+\begin{defi}
+    设一元函数$f(z)$可展开为$z$的幂级数
+    \[
+        f(z) = \sum_{k=0}^{\infty} c_kz^k, |z| < r.
+    \]
+当$\MA \in \SetC^{n \times n}$的普半径$\rho(\MA) < r$时，$\sum_{k=0}^{\infty} c_k\MA^k$收敛，称其和为矩阵函数，记为
+    \[
+        f(\MA) = \sum_{k=0}^{\infty} c_k\MA^k.
+    \]
+\end{defi}
+\subsubsection{矩阵函数值的计算}
+\label{ssub:ju_zhen_han_shu_zhi_de_ji_suan_}
+
+
+% ----------------------------------
+\section{矩阵的微分和积分}
+\label{sec:ju_zhen_de_wei_fen_he_ji_fen_}
+
+\subsection{以一元函数为元素的矩阵的微积分}
+\label{sub:yi_yi_yuan_han_shu_wei_yuan_su_de_ju_zhen_de_wei_ji_fen_}
+
+\[
+    \MA(t) = \begin{bmatrix}
+        \Sa_{11}(t) & \cdots    & \Sa_{1n}(t)   \\
+        \vdots      &           & \vdots        \\
+        \Sa_{m1}(t) & \cdots    & \Sa_{mn}(t)
+    \end{bmatrix}
+\]
+
+\begin{defi}[矩阵微分]
+
+\end{defi}
+
+\begin{defi}
+    设$\MA(t)$和$\MB(t)$为两个可微矩阵。
+    \begin{enumerate}
+        \item \[
+                \frac{\ud}{\ud t}\left( \MA(t) \otimes \MB(t) \right) = \frac{\ud}{\ud t}\MA(t) \otimes \MB(t) + \MA(t) \otimes \frac{\ud}{\ud t}\MB(t)
+                \]
+        \item \[
+                \frac{\ud}{\ud t} \MA(t)^{-1} = - \MA(t)^{-1} \cdot \frac{\ud}{\ud t}\MA(t)\cdot \MA(t)^{-1}
+                \]
+    \end{enumerate}
+\end{defi}
+
+\begin{defi}[连续]
+
+\end{defi}
+
+\begin{defi}[矩阵积分]
+    \[
+        \int_{t_0}^{t_1} \MA(t) \ud t = \left( \int_{t_0}^{t_1} a_{ij}(t)\ud t \right)_{i = 1, \cdot, m; \, j = 1, \cdot, n}
+    \]
+\end{defi}
+
+
+\subsection{函数对向量的微分}
+\label{sub:han_shu_dui_xiang_liang_de_wei_fen_}
+
+\begin{defi}
+    设$f(\Vx)$为纯量函数，其中$\Vx = \left[x_1, \cdots, x_n \right]^T \in \SetC^n$，则
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f(\Vx)}{\partial \Vx_1} \\
+            \vdots \\
+            \frac{\partial f(\Vx)}{\partial \Vx_n}
+        \end{bmatrix}
+    \]
+\end{defi}
+
+\begin{exam}
+    设$\MA = (\Sa_{ij}) \in \SetC^{n \times n}$，$\Vx = \left[ x_1, \cdots, x_n \right]^T \in \SetC^n$
+    \[
+        f(\Vx) = \Vx^T\MA\Vx = \sum_{i=1}^n \sum_{j=1}^n \Sa_{ij}x_ix_j
+    \]
+因此$\forall k = 1, \cdots, n$
+    \[
+        \frac{\partial f(\Vx)}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \sum_{i=1}^n \sum_{j=1}^n \Sa_{ij}x_ix_j \right) = \sum_{i=1}^n \Sa_{ik}x_i + \sum_{j=1}^n \Sa_{jk}x_j
+    \]
+所以
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = \MA \Vx + \MA^T \Vx
+    \]
+特别地，若$\MA$为对称矩阵，则
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = 2 \MA \Vx
+    \]
+\end{exam}
+
+\begin{defi}
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+\frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\
+            \vdots & & \vdots \\
+\frac{\partial f_1(\Vx)}{\partial x_n}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+        \]
+\end{defi}
+
+
+\begin{defi}[Jacobi矩阵]
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix}
+\frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\
+            \vdots & & \vdots \\
+\frac{\partial f_m(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+        \]
+\end{defi}
+
+\begin{thm}
+    纯量函数关于向量的微分性质：
+   \begin{enumerate}
+       \item $\frac{\partial(c_1f(\Vx) + c_2g(\Vx))}{\partial \Vx} = c_1 \frac{\partial f(\Vx)}{\partial \Vx} + c_2 \frac{\partial g(\Vx)}{\partial \Vx}$
+       \item $\frac{\partial f(\Vx)g(\Vx)}{\partial \Vx} = g(\Vx) \frac{\partial f(\Vx)}{\Vx} + f(\Vx) \frac{\partial g(\Vx)}{\partial \Vx}$
+       \item $\frac{\partial f(\Vy(\Vx))}{\partial \Vx} = \frac{\partial \left( \Vy(\Vx) \right)^T}{\partial \Vx} \frac{\partial f(\Vy)}{\partial \Vy}$
+   \end{enumerate}
+\end{thm}
+
+\begin{exam}[Hessian矩阵]
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T } = \frac{\partial}{\partial \Vx^T} \left(\frac{\partial f(\Vx)}{\partial \Vx} \right) = \begin{bmatrix}
+            \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_n}
+        \end{bmatrix}
+    \]
+若$f(\Vx) = \Vx^T\MA\Vx$，则
+    \[
+        \frac{\partial^2(\Vx^T\MA\Vx)}{\partial \Vx \, \partial \Vx^T} = \MA + \MA^T
+    \]
+\end{exam}
+
+\section{一些应用}
+\label{sec:yi_xie_ying_yong_}
+
+\end{document}
