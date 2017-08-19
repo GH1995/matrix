@@ -4,7 +4,16 @@
 \section{满秩分解}
 \label{sec:满秩分解}
 
-\begin{definition}
+\begin{definition}[满秩分解]
+    一个秩为$r$的矩阵被分解为一个列数为$r$的矩阵和一个行数为$r$的矩阵的乘积。
+    \begin{itemize}
+        \item $\MA \in \SetC^{m \times n}$，$r = \mathrm{rank}\, \MA > 0$
+        \item $\MF \in \SetC^{m \times r}$，满列秩矩阵
+        \item $\MG \in \SetC^{r \times n}$，满行秩矩阵
+    \end{itemize}
+    $$
+    \MA = \MF \MG
+    $$
 \end{definition}
 
 \section{三角分解}
@@ -13,22 +22,44 @@
 \subsection{LU分解}
 \label{sub:LU分解}
 
-\begin{definition}
+\begin{definition}[LU分解]
+    一个$n \times n$的矩阵可以分解为一个$n$阶的下三角矩阵和上三角矩阵。$\MA$的绝对值等于$\MU$对角线元素之积。
+    \begin{itemize}
+        \item $\MA \in \SetC^{n \times n}$
+        \item $\ML$为$n$阶下三角矩阵
+        \item $\MU$为$n$阶上三角矩阵
+    \end{itemize}
+    $$
+    \det \MA = \Su_{11}\ldots \Su_{nn}
+    $$
 \end{definition}
 
 \subsection{LDU分解}
 \label{sub:LDU分解}
 
-\begin{definition}
+\begin{definition}[LDU分解]
+    一个$n \times n$矩阵可以分解为一个单位下三角矩阵$\times$一个对角矩阵$\times$单位上三角矩阵
+    $$
+    \MA = \ML \MD \MU
+    $$
 \end{definition}
 
-\subsection{Lu分解的算法}
-\label{sub:Lu分解的算法}
+\subsection{LU分解的算法}
+\label{sub:LU分解的算法}
 
 \subsection{Cholesky分解}
 \label{sub:Cholesky分解}
 
-\begin{definition}
+\begin{definition}[Cholesky分解，又叫平方根分解]
+    一个$n \times n$的对称正定矩阵被分解为一个下三角矩阵和它转置矩阵的乘积。
+    $$
+    \MA = \MG \MG^T
+    $$
+    \begin{itemize}
+        \item $\MA \ in \SetC^{n \times n}$的Hermite 正定矩阵，对称正定矩阵
+        \item $\MG$下三角矩阵
+        \item $\MG^T$上三角矩阵
+    \end{itemize}
 \end{definition}
 
 \section{QR分解}
@@ -37,7 +68,15 @@
 \subsection{QR分解}
 \label{sub:QR分解}
 
-\begin{definition}
+\begin{definition}[QR分解]
+    $$
+    \MA = \MQ \MR
+    $$
+    \begin{itemize}
+        \item $\MA \in \SetC^{m \times n}$
+        \item $\MQ \in \SetC^{m \times n}$列正交矩阵
+        \item $\MR \in \SetC^{n \times n}$上三角矩阵
+    \end{itemize}
 \end{definition}
 
 \subsection{Gram-Schmidt算法及其修正}
@@ -46,13 +85,18 @@
 \subsection{Householder变换法}
 \label{sub:Householder变换法}
 
-\begin{definition}
+\begin{definition}[初等反射矩阵，又叫Householder矩阵]
+    $$
+    \MH_{\Vu} = \MI - 2\Vu \Vu^T
+    $$
 \end{definition}
 
 \subsection{Givens旋转法}
 \label{sub:Givens旋转法}
 
-\begin{definition}
+\begin{definition}[初等旋转矩阵，又叫Givens矩阵]
+    设$c^2 + s^2 = 1$
+    $\MG_{ij}$是这样的一个矩阵，对角线一般为1，除了$g_{ii}=c,\,g_{jj}=1$，$g_{ij}=-s,\,g_{ji}=s$，记为$G_{ij}(c,s)$。
 \end{definition}
 
 \section{奇异值分解}
@@ -61,7 +105,16 @@
 \subsection{定义及性质}
 \label{sub:定义及性质}
 
-\begin{definition}
+\begin{definition}[奇异值]
+    $$
+    \sigma_i = \sqrt{\lambda_i}
+    $$
+    注意： $\lambda_i$ 不是$\MA$的特征值！
+    \begin{itemize}
+        \item $\MA$是$m \times n$的矩阵，秩为$r$
+        \item 那么$\MA^T\MA$为半正定矩阵，秩也为$r$
+        \item $\MA^T\MA$的特征值$\lambda_1, \ldots, \lambda_n$从大到小排列
+    \end{itemize}
 \end{definition}
 
 \subsection{极分解}

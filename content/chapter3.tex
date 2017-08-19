@@ -7,25 +7,20 @@
 \subsection{矩阵序列}
 \label{sub:矩阵序列}
 
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
-
 \subsection{矩阵级数}
 \label{sub:矩阵级数}
 
-\begin{definition}[]
+\begin{definition}[矩阵级数]
+    $$
+    \sum \MA^{(k)}
+    $$
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}
+    \begin{description}
+        \item[矩阵级数是发散的]
+        \item[绝对收敛]
+    \end{description}
 \end{definition}
 
 \subsection{矩阵幂级数}
@@ -37,7 +32,15 @@
 \subsection{矩阵函数的定义与性质}
 \label{sub:矩阵函数的定义与性质}
 
-\begin{definition}[]
+\begin{definition}
+    设一元函数$f(z)$可展开为$z$的幂级数
+    \[
+        f(z) = \sum_{k=0}^{\infty} c_kz^k, |z| < r.
+    \]
+当$\MA \in \SetC^{n \times n}$的谱半径$\rho(\MA) < r$时，$\sum_{k=0}^{\infty} c_k\MA^k$收敛，称其和为矩阵函数，记为
+    \[
+        f(\MA) = \sum_{k=0}^{\infty} c_k\MA^k.
+    \]
 \end{definition}
 
 \subsection{矩阵函数值的计算}
@@ -55,7 +58,7 @@
 \subsubsection{Jordan标准形法}
 \label{ssub:Jordan标准形法}
 
-\begin{definition}[]
+\begin{definition}
 \end{definition}
 
 \section{矩阵的微分和积分}
@@ -64,28 +67,63 @@
 \subsection{以一元函数为元素的矩阵的微积分}
 \label{sub:以一元函数为元素的矩阵的微积分}
 
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
-\end{definition}
+\[
+    \MA(t) = \begin{bmatrix}
+        \Sa_{11}(t) & \cdots    & \Sa_{1n}(t)   \\
+        \vdots      &           & \vdots        \\
+        \Sa_{m1}(t) & \cdots    & \Sa_{mn}(t)
+    \end{bmatrix}
+\]
 
 \subsection{函数对向量的微分}
 \label{sub:函数对向量的微分}
 
-\begin{definition}[]
+\begin{definition}
+    设$f(\Vx)$为纯量函数，其中$\Vx = \left[x_1, \cdots, x_n \right]^T \in \SetC^n$，则
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f(\Vx)}{\partial \Vx_1} \\
+            \vdots \\
+            \frac{\partial f(\Vx)}{\partial \Vx_n}
+        \end{bmatrix}
+    \]
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}[向量值函数$f(\Vx)$对向量$\Vx$的微分]
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_1(\Vx)}{\partial x_n}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+        \]
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}[Jacobi矩阵]
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_m(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+        \]
+\end{definition}
+
+
+\begin{definition}[Hessian矩阵]
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T } = \frac{\partial}{\partial \Vx^T} \left(\frac{\partial f(\Vx)}{\partial \Vx} \right) = \begin{bmatrix}
+            \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_n}
+        \end{bmatrix}
+    \]
+若$f(\Vx) = \Vx^T\MA\Vx$，则
+    \[
+        \frac{\partial^2(\Vx^T\MA\Vx)}{\partial \Vx \, \partial \Vx^T} = \MA + \MA^T
+    \]
 \end{definition}
 
 \subsection{函数对矩阵的微分}
@@ -94,8 +132,14 @@
 \subsubsection{定义与性质}
 \label{ssub:定义与性质}
 
-
-\begin{definition}[]
+\begin{definition}[纯量函数$f(\MA)$对矩阵$\MA$的微分定义]
+    $$
+    \frac{\partial f(\MA)}{\partial \MA} = \begin{bmatrix}
+        \frac{\partial f(\MA)}{\partial a_{11}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{1n}} \\
+        \vdots                                      &   \ddots  &   \vdots                                  \\
+        \frac{\partial f(\MA)}{\partial a_{m1}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{mn}}
+    \end{bmatrix}
+    $$
 \end{definition}
 
 \subsubsection{迹的梯度矩阵}
@@ -107,7 +151,11 @@
 \subsection{矩阵对矩阵的微分}
 \label{sub:矩阵对矩阵的微分}
 
-\begin{definition}[]
+\begin{definition}[矩阵$\MF(\MX)$对$\MX$的微分]
+    $\MX \in \SetC^{m \times n}$，$f_{ij}(\MX)$为$mn$元纯量函数($i\colon 1 \to p,\, j\colon 1 \to q$)，记矩阵函数$\MF(\MX) = \left( f_{ij}(\MX) \right)$
+    $$
+    \frac{\partial \MF(\MX)}{\partial \MX} = \left[ \mathrm{vec}\left(\frac{\partial f_{11}}{\partial \MX}  \right), \mathrm{vec}\left(\frac{\partial f_{12}}{\partial \MX}  \right), \ldots, \mathrm{vec}\left(\frac{\partial f_{pq}}{\partial \MX}  \right)  \right]
+    $$
 \end{definition}
 
 \section{一些应用}
