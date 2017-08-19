@@ -66,7 +66,7 @@
     向量组$\Vx_1, \ldots, \Vx_n$生成的子空间，记为$\textbf{span}\{\Vx_1, \ldots, \Vx_n\}$
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}
 \end{definition}
 
 \subsection{Euclid空间、酉空间}
@@ -105,28 +105,52 @@
 \subsection{秩}
 \label{sub:秩}
 
-\begin{definition}
+\begin{definition}[秩]
+    $\MA$的值域的维数，记为$\mathrm{rank}\,\MA$
+\end{definition}
+
+\begin{definition}[零度]
+    $\MA$的零空间的维数，记为$n(\MA)$
 \end{definition}
 
 \subsection{行列式}
 \label{sub:行列式}
 
 \begin{definition}
+    \begin{description}
+        \item[代数余子式] $\MA = (a_{ij}) \in \SetC^{n \times n}$中去掉第$i$行和第$j$列元素后剩下的行列式，再乘以系数$(-1)^{i+j}$。
+        \item[$(\MA_{ij})$] 所有代数余子式构成的矩阵
+    \end{description}
 \end{definition}
 
 \subsection{迹}
 \label{sub:迹}
 
-\begin{definition}
+\begin{definition}[迹]
+    $\MA$的主对角线元素之和
+    $$
+    \mathrm{tr}\, \MA = \sum_{i=1}^n a_{ij}
+    $$
 \end{definition}
 
 \subsection{特征值、特征向量和特征多项式}
 \label{sub:特征值、特征向量和特征多项式}
 
 \begin{definition}
+    \begin{description}
+        \item[特征多项式] $\det(\lambda \MI - A)$
+        \item[特征值$\lambda$] $\lambda$是$\det(\lambda \MI - A)$的根
+        \item[特征向量$\Vx$] $\MA \Vx = \lambda \Vx$
+        \item[特征对] $(\lambda, \Vx)$
+    \end{description}
 \end{definition}
 
 \begin{definition}
+    \begin{description}
+        \item[谱$\lambda(\MA)$] 所有特征值的集合
+        \item[谱半径$\rho(\MA)$] 最大特征值绝对值
+        \item[特征子空间$S_{\lambda}(\MA)$] 特征向量构成的空间
+    \end{description}
 \end{definition}
 
 \section{矩阵的标准形}
@@ -135,7 +159,20 @@
 \subsection{等价变换下的标准形}
 \label{sub:等价变换下的标准形}
 
-\begin{definition}
+\begin{definition}[行阶梯矩阵]
+    \begin{enumerate}
+        \item 每行的第一个元素一般为1
+        \item 1的头上\emph{列}全是0
+        \item 全0行在底下
+    \end{enumerate}
+
+    \[
+        \begin{bmatrix}
+            0   &   1   &   -2  &   0   &   -1  &   3   \\
+            0   &   0   &   0   &   1   &   2   &   5   \\
+            0   &   0   &   0   &   0   &   0   &   0
+        \end{bmatrix}
+    \]
 \end{definition}
 
 \subsection{相似变换下的Jordan标准形}
@@ -148,6 +185,24 @@
 \label{ssub:jordanfen_jie_ding_li_}
 
 \begin{definition}
+    \begin{description}
+        \item[Jordan块\, $\MJ_{j}(\lambda)$] $j \times j$上三角矩阵，主对角线$\lambda$，上面是$1$
+            $$ \MJ_{j}(\lambda) = \begin{bmatrix}
+                \lambda     &   1       &             &              &          \\
+                            &   \lambda &   1         &              &          \\
+                            &           &   \lambda   &   \ddots     &          \\
+                            &           &             &   \ddots     &     1    \\
+                            &           &             &              &     \lambda
+            \end{bmatrix} $$
+        \item[Jordan 矩阵$\MJ$] 把Jordan块放在对角线上$\sum n_i = n$ $$
+            \MJ = \begin{bmatrix}
+                \MJ_{n_1}(\lambda_1)     &           &           \\
+                                        & \ddots    &           \\
+                                        &           & \MJ_{n_k}(\lambda_k)
+            \end{bmatrix}
+            $$
+        \item[Jordan 标准形] 加个限制条件：$\MJ$与$\MA$相似
+    \end{description}
 \end{definition}
 
 \subsubsection{矩阵的可对角化}
@@ -159,7 +214,15 @@
 \subsection{相合变换下的标准形}
 \label{sub:相合变换下的标准形}
 
-\begin{definition}
+\begin{definition}[$\MA$的惯性]
+    就是一个三元组，记为$\mathrm{In}\, \MA$
+    \[
+        (i_{+}(\MA), i_{-}(\MA), i_{0}(\MA))
+    \]
+\begin{itemize}
+    \item $\MA \in \SetC^{n \times n}$为对称矩阵 \emph{ Hermite矩阵 }
+    \item $i_{+}(\MA)$, $i_{-}(\MA)$, $i_{0}(\MA)$分别为$\MA$的正、负和零特征值的个数
+\end{itemize}
 \end{definition}
 
 \section{半正定和正定矩阵}
@@ -183,14 +246,19 @@
 \subsection{Hadamard积及其性质}
 \label{sub:Hadamard积及其性质}
 
-\begin{definition}
+\begin{definition}[Hadamard积]
+    $\MA, \MB$对应位置元素相乘得到的新矩阵，记为$\MA \odot \MB$
 \end{definition}
 
+\begin{definition}[矩阵的向量化]
+    就是把矩阵的每一行首尾连接起来形成一个大向量，记为$\mathrm{vec}(\MA)$
+\end{definition}
 \subsection{Kronecker积及其性质}
 \label{sub:Kronecker积及其性质}
 
 
-\begin{definition}
+\begin{definition}[Kronecker积]
+    把$\MA$中每个$a_{ij}$变成$a_{ij}\MB$，记为$\MA \otimes \MB$
 \end{definition}
 
 \begin{definition}

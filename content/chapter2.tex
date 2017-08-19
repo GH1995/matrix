@@ -7,10 +7,11 @@
 \subsection{向量范数的定义}
 \label{sub:向量范数的定义}
 
-\begin{definition}[]
-\end{definition}
-
-\begin{definition}[]
+\begin{definition}[向量范数是酉不变的]
+    向量乘以一个酉矩阵之后范数大小不变
+    \[
+        \norm{\MU\Vx} = \norm{\Vx}
+    \]
 \end{definition}
 
 \subsection{常用向量范数}
@@ -19,40 +20,83 @@
 \subsection{向量范数的分析性质}
 \label{sub:向量范数的分析性质}
 
-\begin{definition}[]
+\begin{definition}[1-范数或$l_1$范数]
+    $\norm{\Vx}_1$ \quad 向量元素绝对值之和
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}[2-范数或$l_2$范数]
+    $\norm{\Vx}_2$ \quad 向量元素平方和的开方
+\end{definition}
+
+
+\begin{definition}[p-范数或$l_p$范数]
+    $$
+    \norm{\Vx}_p = \left( \sum |\Sx_i|^p \right)^{\frac{1}{p}}
+    $$
+\end{definition}
+
+\begin{definition}[$\infty$-范数或$l_{\infty}$范数]
+    $\norm{\Vx}_{\infty}$ 向量元素的最大绝对值
+\end{definition}
+
+\begin{definition}[加权范数$\norm{\Vx}_{\MA}$]
+    $\MA$是对称正定矩阵
+    $$
+    \norm{\Vx}_{\MA} = \left( \Vx^T\MA\Vx \right)^{\frac{1}{2}}
+    $$
 \end{definition}
 
 \subsection{向量范数的代数性质}
 \label{sub:向量范数的代数性质}
 
+\begin{definition}
+    $\MA \in \SetC^{m \times n}$满列秩，则$\MA^TA$为 \textrm{Hermite}正定矩阵，从而
+    $$
+    \norm{\Vx}_{\MA} = \norm{\MA \Vx}
+    $$
+\end{definition}
 \section{矩阵范数}
 \label{sec:矩阵范数}
 
 \subsection{矩阵范数的定义及分析性质}
 \label{sub:矩阵范数的定义及分析性质}
 
-\begin{definition}[]
+\begin{definition}[(广义)矩阵范数是酉不变的]
+    矩阵前后乘以两个酉阵范数大小不变
+    $$
+    \norm{\MU \MA \MV} = \norm{\MA}
+    $$
 \end{definition}
 
-\begin{definition}[]
+\begin{definition}[矩阵范数与向量范数相容]
+    $\MA \in \SetC^{m \times n}, \Vx \in \SetC^{n}$
+    $$
+    \norm{\MA \Vx}_{V} \leq \norm{\MA}_M \norm{\Vx}_V
+    $$
 \end{definition}
 
-\begin{definition}[]
-\end{definition}
 
 \subsection{常用的矩阵范数}
 \label{sub:常用的矩阵范数}
 
-\begin{definition}[]
+\begin{definition}[$l_2$范数，Euclid范数，Frobenius范数]
+    $$
+    \norm{\MA}_F = \left ( \sum \sum |a_{ij}|^2 \right)^{\frac{1}{2}}
+    $$
 \end{definition}
+
+重要：
+$$
+\norm{\MA}_F^2 = \mathrm{tr}(\MA^T\MA)
+$$
 
 \subsection{由向量范数诱导的矩阵范数}
 \label{sub:由向量范数诱导的矩阵范数}
 
-\begin{definition}[]
+\begin{definition}[有向量范数诱导的矩阵范数或算子范数]
+    $$
+    \norm{\MA} = \max_{\norm{\Vx}=1} \norm{\MA \Vx} = \max_{\Vx \neq 0} \frac{\norm{\MA\Vx}}{\norm{\Vx}}
+    $$
 \end{definition}
 
 \section{一些应用}
@@ -67,6 +111,11 @@
 \subsection{条件数}
 \label{sub:条件数}
 
-\begin{definition}[]
+\begin{definition}[条件数]
+    $\MA \in \SetC^{n \times n}$非奇异
+    $\norm{\MA}\norm{\MA^{-1}}$是条件数，记为$\mathrm{cond}(\MA)$
+    $$
+    \mathrm{cond}_2(\MA) = \norm{\MA}_2\norm{\MA^{-1}}_2
+    $$
 \end{definition}
 
