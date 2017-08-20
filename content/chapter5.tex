@@ -19,16 +19,41 @@
 \subsection{Rayleigh商}
 \label{sub:Rayleigh商}
 
-\begin{definition}
+\begin{definition}[Rayleigh商]
+    $$
+    \SR(\Vx) = \frac{\Vx^T \MA \Vx}{\Vx^T\Vx}
+    $$
 \end{definition}
 
 \subsection{广义Rayleigh商}
 \label{sub:广义Rayleigh商}
 
-\begin{definition}
-\end{definition}
+% \begin{description}
+% \item[$\MA$] $n \times n$Hermite 矩阵
+% \item[$\MB$] $n \times n$Hermite 正定矩阵
+% \end{description}
+
+$\MA$ $n \times n$Hermite 矩阵
+$\MB$ $n \times n$Hermite 正定矩阵
 
 \begin{definition}
+    $$
+    \begin{aligned}
+        \MA \Vx & = \lambda \MB \Vx \\
+        \MB^{-\frac{1}{2}}\MA \MB^{- \frac{1}{2}}\tilde{\Vx} & = \lambda \tilde{\Vx} \\
+        \Vx & = \MB^{-\frac{1}{2}}\tilde{\Vx}
+    \end{aligned}
+    $$
+    \begin{description}
+        \item[$\lambda$] $\MA$相对于$\MB$的特征值
+        \item[$\Vx$] $\MA$相对于$\MB$的属于$\lambda$的特征向量
+    \end{description}
+\end{definition}
+
+\begin{definition}[矩阵$\MA$相对于矩阵$\MB$的广义 Rayleigh 商]
+    $$
+    \SR(\Vx)) = \frac{\Vx^T \MA \Vx}{\Vx^T \MB \Vx}
+    $$
 \end{definition}
 
 \subsection{特征值的分隔}
