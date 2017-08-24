@@ -4,7 +4,26 @@
 \section{投影矩阵}
 \label{sec:投影矩阵}
 
-\begin{definition}
+\begin{definition}[投影矩阵]
+    $\Vx \in \SetC^{n}$，这个空间可以被拆分为两个互补子空间（$\SetC^n = L \oplus M$），称$\Vy$为$\Vx$沿着$\SM$到$\SL$上的投影。
+    $$
+    \Vx = \Vy + \Vz, \quad \Vy \in \SL,\, \Vz \in \SM
+    $$
+
+    \begin{description}
+        \item[投影算子] $\Vx$到$\SL$的变换，记为$P_{L,M}$
+        \item[投影矩阵] 投影算子在标准正交基下对应的矩阵，记为$P_{L,M}$
+    \end{description}
+\end{definition}
+
+\begin{definition}[幂等矩阵]
+    $$
+    \MP^2 = \MP\, n \times n
+    $$
+\end{definition}
+
+\begin{definition}[正交投影算子/正交投影矩阵]
+    $\MP_L$\quad 到$L$上的正交投影算子
 \end{definition}
 
 \section{广义逆矩阵及其性质}
