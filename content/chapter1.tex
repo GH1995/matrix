@@ -17,66 +17,149 @@
 \end{definition}
 
 \begin{definition}[基]
+
     $\Ve_1, \ldots, \Ve_n \in \SetC^n$
+
     若$\Vx$在该基下的线性表示为
-    $$\Vx = \Sx_1 \Vv_1 + \ldots + \Sx_n\Vv_n$$
-    则称$\Sx_1, \ldots, \Sx_n$为向量$\Vx$在该坐标系中的\emph{坐标}或\emph{分量}，并将向量$\Vx$记为$$\Vx = \begin{bmatrix}
-        \Sx_1  \\
+    \[
+        \Vx = \Sx_1 \Vv_1 + \cdots + \Sx_n\Vv_n
+    \]
+则称$\Sx_1, \ldots, \Sx_n$为向量$\Vx$在该坐标系中的\emph{坐标}或\emph{分量} ， 并将向量$\Vx$记为
+    \[
+        \Vx = \begin{bmatrix}
+            \Sx_1  \\
             \vdots \\
             \Sx_n  \\
-    \end{bmatrix}$$
-    \begin{gather}
-        \Vv_1 = \Sa_{11}\Vu_1 + \ldots + \Sa_{n1}\Vu_n \\
+        \end{bmatrix}
+    \]
+
+\begin{gather}
+    \Vv_1 = \Sa_{11}\Vu_1 + \ldots + \Sa_{n1}\Vu_n \\
         \vdots \\
         \Vv_1 = \Sa_{11}\Vu_1 + \ldots + \Sa_{n1}\Vu_n
-    \end{gather}
+\end{gather}
+
     称矩阵
-    \[ \MA = \begin{bmatrix}
-        \Sa_{11} & \ldots & \Sa_{1n} \\
-        \vdots   &        & \vdots   \\
-        \Sa_{n1} & \ldots & \Sa_{nn}
-    \end{bmatrix} \]
-    为由基$\Vu_1, \ldots, \Vu_n$变为基$\Vv_1, \ldots, \Vv_n$的\emph{过渡矩阵}，并称
-    $$
-    \left[\Vv_1, \ldots, \Vv_n\right] = \left[\Vu_1, \ldots, \Vu_n \right] \MA
-    $$
-    为\emph{基变换公式}。
+    \[
+        \MA = \begin{bmatrix}
+            \Sa_{11} & \ldots & \Sa_{1n} \\
+            \vdots   &        & \vdots   \\
+            \Sa_{n1} & \ldots & \Sa_{nn}
+        \end{bmatrix}
+    \]
+
+为由基$\Vu_1, \ldots, \Vu_n$变为基$\Vv_1, \ldots, \Vv_n$的\emph{过渡矩阵}，并称
+    \[
+        \left[\Vv_1, \ldots, \Vv_n\right] = \left[\Vu_1, \ldots, \Vu_n \right] \MA
+    \]
+为\emph{基变换公式}。
 
     某个向量在$\Vu_1, \ldots, \Vu_n$和基$\Vv_1, \ldots, \Vv_n$下的坐标分别为$\left[\Sx_1, \ldots, \Sx_n \right]^T$和$\left[\Sy_1, \ldots, \Sy_n \right]^T$，则称
-    $\begin{bmatrix}
-        \Sx_1 \\
-        \vdots \\
-        \Sx_n
-    \end{bmatrix} = \MA \begin{bmatrix}
-        \Sy_1 \\
-        \vdots \\
-        \Sy_n
-    \end{bmatrix}$或$\begin{bmatrix}
-        \Sy_1 \\
-        \vdots \\
-        \Sy_n
-    \end{bmatrix} = \MA^{-1} \begin{bmatrix}
-        \Sx_1 \\
-                                 \vdots \\
-                                 \Sx_n
-    \end{bmatrix}$ \\
-                             为\emph{基变换下向量坐标的变换公式}。
+    \[
+        \begin{bmatrix}
+            \Sx_1 \\
+            \vdots \\
+            \Sx_n
+        \end{bmatrix} = \MA \begin{bmatrix}
+            \Sy_1 \\
+            \vdots \\
+            \Sy_n
+        \end{bmatrix}
+    \]
+为\emph{基变换下向量坐标的变换公式}。
+
 \end{definition}
 
 \begin{definition}[线性子空间]
-    向量组$\Vx_1, \ldots, \Vx_n$生成的子空间，记为$\textbf{span}\{\Vx_1, \ldots, \Vx_n\}$
+    向量组$\Vx_1, \ldots, \Vx_n$生成的子空间，记为$\mathrm{span}\{\Vx_1, \ldots, \Vx_n\}$
 \end{definition}
 
 \begin{definition}
+    \begin{description}
+        \item[直和] 称子空间$\SV_1 + \SV_2$为$\SV_1$与$\SV_2$的直和，记为$\SV_1 \oplus \SV_2$
+        \item[互补子空间] 若$\SV = \SV_1 \oplus \SV_2$，称$\SV_1$和$\SV_2$为互补子空间
+    \end{description}
 \end{definition}
 
 \subsection{Euclid空间、酉空间}
 \label{sub:Euclid空间、酉空间}
 
-\begin{definition}
+\begin{definition}[内积]
+    \begin{itemize}
+        \item 非负性
+        \item 正定性 $\langle\Vx,\Vx\rangle=0$当且仅当$\Vx = 0$
+        \item 可加性
+        \item 齐次性 $\langle a \Vx, \Vy \rangle = a \langle \Vx, \Vy \rangle$
+        \item Hermite性 $\langle \Vx, \Vy \rangle = \langle \Vy, \Vx \rangle$
+    \end{itemize}
+
+    称\emph{函数} $\langle \cdot, \cdot \rangle \colon \SV \to \SF$为$\SV$上的内积。
+
+    赋予了内积的 \emph{复} 和 \emph{实} 线性空间分别称为 \emph{酉空间} 和 \emph{Euclid 空间}。
+
+    对任意两个向量 $\Vx, \Vy \in \SetC^{n},$由
+    \[
+        \langle \Vx, \Vy \rangle = \Vy^T \Vx
+    \]
+定义的函数是 $\SetC^n$ 上的内积，从而 $\SetC^n$ 为酉空间。
+
+    对任意两个矩阵 $\MA, \MB \in \SetC^{m \times n}, $由
+    \[
+        \langle \MA , \MB \rangle = \sum_{i = 1}^{m} \sum_{j=1}^{n} a_{ij} b_{ij}
+    \]
+定义的函数是 $\SetC^{m \times n}$ 上的内积，从而 $\SetC^{m \times n}$ 为酉空间。
+
+    {\kaishu
+    第一次阅读
+        \begin{enumerate}
+            \item 欧式空间就是酉空间
+            \item 酉空间的一个重要性质就是 \emph{对称性}，即 Hermite 性。
+            \item 正定性即是，永远保持自己是整数，仅当为0时取0
+            \item 齐次性就是倍数
+        \end{enumerate}
+    }
 \end{definition}
 
 \begin{definition}
+    设 $\SV$为酉空间，且 $\SS, \SS_1, \SS_2$均为 $\SV$的子空间。
+    \begin{description}
+        \item[向量$\Vx, \Vy \in \SV$ 正交，记为 $\Vx \perp \Vy$] $\langle \Vx, \Vy \rangle = 0$
+        \item[向量$\Vx$正交于子空间$\SS$] $\Vx$ 与子空间$\SS$中所有向量正交
+        \item[$\SS_1, \SS_2$为正交子空间] $\SS_1$中的任意向量均正交于子空间$\SS_2$
+        \item[$\SS$的正交补子空间，记为$\SS^{\perp}$]
+    \end{description}
+\end{definition}
+
+\begin{definition}
+    线性映射
+    线性变换
+
+    \[
+        T[\Vv_1, \cdots, \Vv_n] = [\Vu_1, \cdots, \Vu_m] \MA
+    \]
+\end{definition}
+
+\begin{definition}[正交变换/酉变换]
+    \[
+        \langle \Vx, \Vx \rangle = \langle T \Vx, T \Vx \rangle
+    \]
+
+正交矩阵/酉矩阵
+
+    向量内积，向量长度，两个非零向量的夹角均是正交变换下的不变量。
+
+    $\SU \in \SR^{n \times n}$为正交矩阵的充要条件是 $\SU \SU^T = \SI$
+
+        若矩阵$\SU \in \SR^{m \times n}$满足 $\SU \SU^T = \SI$，则称 $\SU$ 为列正交矩阵。
+
+\end{definition}
+
+\begin{definition}[对称变换/ Hermite变换]]
+    \[
+        \langle T\Vx, \Vy \rangle = \langle \Vx , T \Vy \rangle
+    \]
+
+$\MA$ 为对称矩阵的充要条件是$\MA = \MA^T$
 \end{definition}
 
 \subsection{线性映射及其矩阵表示}
