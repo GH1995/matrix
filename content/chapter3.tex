@@ -12,13 +12,43 @@
 \subsection{矩阵序列}
 \label{sub:矩阵序列}
 
+\begin{lemma}
+    $\MA \text{is} n \times n,$ 若存在一种矩阵范数 $\norm{\cdot}$使得 $\norm{\MA} < 1,$ 则 $\MA^k \to \MO$。
+\end{lemma}
+
+\begin{theorem}
+    设 $\MA \text{is} n \times n$，则 $\MA^k \to \MO \Longleftrightarrow \rho(\MA) < 1$
+\end{theorem}
+
+\begin{definition}[收敛矩阵]
+    $\MA \text{is} n \times n$ \\
+    \[
+        \MA^k \to \MO
+    \]
+\end{definition}
+
+\begin{definition}[界]
+    \[
+        \abs{a_{ij}^{(k)}} < C
+    \]
+    并称 $\SC$ 为$\{ \MA^{(k)} \}$ 的界。
+\end{definition}
+
+\begin{inference}
+    \[
+        \norm{\MA^k}^{\frac 1k} \to \rho{\MA}
+    \]
+\end{inference}
+
+
+
 \subsection{矩阵级数}
 \label{sub:矩阵级数}
 
 \begin{definition}[矩阵级数]
-    $$
-    \sum \MA^{(k)}
-    $$
+    \[
+        \MA^{(0)} + \MA^{(1)} + \cdots \MA^{(k)} + \cdots = \sum \MA^{(k)}
+    \]
 \end{definition}
 
 \begin{definition}
@@ -28,25 +58,59 @@
     \end{description}
 \end{definition}
 
+
 \subsection{矩阵幂级数}
 \label{sub:矩阵幂级数}
 
+\begin{theorem}[幂级数]
+    \[
+        \sum \MA^k = \MI + \MA +\MA^2 + \cdots + \MA^k + \cdots = (\MI - \MA)^{-1}
+    \]
+    收敛的充要条件是 $\MA$ 为收敛矩阵，且在收敛是，其和为 $(\MI - \MA)^{-1}.$
+\end{theorem}
+
+\begin{theorem}
+    $f(z) = \sum c_k z^k$的收敛半径为 $r.$ 若 $\ann$ 满足 $\rho(\MA) < r,$ 则矩阵幂级数 $\sum c_k \MA^k$ \emph{绝对收敛}；若 $rho(\MA) > r,$ 则矩阵幂级数发散。
+\end{theorem}
+
+
 \section{矩阵函数}
 \label{sec:矩阵函数}
+
 
 \subsection{矩阵函数的定义与性质}
 \label{sub:矩阵函数的定义与性质}
 
 \begin{definition}
-    设一元函数$f(z)$可展开为$z$的幂级数
+    当矩阵 $\ann$ 的谱半径 $\rho(\MA) < r$ 时，矩阵幂级数 $\sum c_k \MA^k$ 收敛，称其和为 \emph{矩阵函数}，记为
     \[
-        f(z) = \sum_{k=0}^{\infty} c_kz^k, |z| < r.
-    \]
-当$\MA \in \SetC^{n \times n}$的谱半径$\rho(\MA) < r$时，$\sum_{k=0}^{\infty} c_k\MA^k$收敛，称其和为矩阵函数，记为
-    \[
-        f(\MA) = \sum_{k=0}^{\infty} c_k\MA^k.
+        f(\MA) = \sum_0^{\infty} c_k \MA^k
     \]
 \end{definition}
+
+\begin{example}
+    \[
+        \begin{dcases}
+            f(z) = \frac{1}{1 - z} = \sum z^k, \quad & \abs{z} < 1 \\
+            f(\MA) = \sum \MA^k = (\MI - \MA)^{-1}, \quad & \rho(\MA) < 1
+        \end{dcases}
+    \]
+\end{example}
+
+\begin{theorem}
+    若 $\MA, \MB$ 可交换，即 $\MA \MB = \MB \MA,$ 则
+    \[
+        e^{\MA} e^{\MB} = e^{\MB} e^{\MA} = e^{\MA + \MB}
+    \]
+    同时，
+    \[
+        \begin{cases}
+            e^{\MA} e^{-\MA} = e^{-\MA} e^{\MA} = \MI \\
+            \left( e^{\MA} \right)^{-1} = e^{-\MA} \\
+            \left( e^{\MA} \right)^{k} = e^{k\MA}
+        \end{cases}
+    \]
+\end{theorem}
 
 \subsection{矩阵函数值的计算}
 \label{sub:矩阵函数值的计算}
@@ -60,6 +124,16 @@
 \subsubsection{对角形法}
 \label{ssub:对角形法}
 
+若 $\ann$ 相似于对角矩阵 $\Lambda,$即存在非奇异矩阵 $\MP,$使得
+\[
+    \MP^{-1} \MA \MP = \Lambda = \mathrm{diag}(\lambda_1, \cdots, \lambda_n)
+\]
+则有
+\[
+    f(\MA) = \MP \cdot \mathrm{diag}\left(f(\lambda_1), \cdots, f(\lambda_n)\right) \cdot \MP^{-1}
+\]
+
+当 $\MA$ 相似于对角矩阵是，矩阵幂级数的求和问题可以转化为求变换矩阵的问题。
 \subsubsection{Jordan标准形法}
 \label{ssub:Jordan标准形法}
 
@@ -102,7 +176,7 @@
             \vdots & & \vdots \\
             \frac{\partial f_1(\Vx)}{\partial x_n}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
         \end{bmatrix}
-        \]
+    \]
 \end{definition}
 
 \begin{definition}[Jacobi矩阵]
@@ -113,7 +187,7 @@
             \vdots & & \vdots \\
             \frac{\partial f_m(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
         \end{bmatrix}
-        \]
+    \]
 \end{definition}
 
 
@@ -125,7 +199,7 @@
             \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_n}
         \end{bmatrix}
     \]
-若$f(\Vx) = \Vx^T\MA\Vx$，则
+    若$f(\Vx) = \Vx^T\MA\Vx$，则
     \[
         \frac{\partial^2(\Vx^T\MA\Vx)}{\partial \Vx \, \partial \Vx^T} = \MA + \MA^T
     \]
