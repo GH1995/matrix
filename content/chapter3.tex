@@ -74,9 +74,9 @@
 \end{theorem}
 
 
+
 \section{矩阵函数}
 \label{sec:矩阵函数}
-
 
 \subsection{矩阵函数的定义与性质}
 \label{sub:矩阵函数的定义与性质}
@@ -138,7 +138,26 @@
 \label{ssub:Jordan标准形法}
 
 \begin{definition}
+    设 $\MA$ 的 Jordan 标准形为 $\MJ,$ 则存在可逆矩阵 $\MP$ 使得
+    \[
+        \begin{dcases}
+            \MP^{-1} \MA \MP = \MJ = \mathrm{diag}(\MJ_1, \cdots, \MJ_s) \\
+            f(\MA) = \MP \cdot \mathrm{diag}(f(\MJ_1), \cdots, f(\MJ_s)) \cdot \MP^{-1}
+        \end{dcases}
+    \]
+    去掉了收敛矩阵的限制。
 \end{definition}
+
+\begin{theorem}
+    对于 $f(\MA)$ 与矩阵的 Jordan 标准形 $\MJ$ 中 Jordan 块的排列顺序无关，与变换矩阵 $\MP$ 的选取无关。
+    函数可相加，可相乘。
+    \[
+        \begin{dcases}
+            f(z) = f_1(z) +f_2(z) \Longrightarrow f(\MA) = f_1(\MA) + f_2(\MA) \\
+            f(z) = f_1(z) f_2(z) \Longrightarrow f(\MA) = f_1(\MA)  f_2(\MA)
+        \end{dcases}
+    \]
+\end{theorem}
 
 \section{矩阵的微分和积分}
 \label{sec:矩阵的微分和积分}
@@ -160,13 +179,35 @@
 \begin{definition}
     设$f(\Vx)$为纯量函数，其中$\Vx = \left[x_1, \cdots, x_n \right]^T \in \SetC^n$，则
     \[
-        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+        \frac{\partial f(\Vx)}{\partial \Vx} =
+        \begin{bmatrix}
             \frac{\partial f(\Vx)}{\partial \Vx_1} \\
             \vdots \\
             \frac{\partial f(\Vx)}{\partial \Vx_n}
         \end{bmatrix}
     \]
 \end{definition}
+
+\begin{example}
+    $\ann,$ $\vxx$
+    \[
+        f(\Vx) = \Vx^T \MA \Vx = \sum \sum a_{ij} x_i y_j
+    \]
+    对 $\forall k = 1, \cdots , n,$ 有
+    \[
+        \frac{\partial f(\Vx)}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \sum \sum a_{ij} x_i y_j \right) = \sum a_{ik}x_i + \sum a_{kj}x_j
+    \]
+    所以
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = \MA \Vx + \MA^T \Vx
+    \]
+    若 $\MA$ 为对称矩阵，则
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = 2 \MA \Vx
+    \]
+\end{example}
+
+
 
 \begin{definition}[向量值函数$f(\Vx)$对向量$\Vx$的微分]
     $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
