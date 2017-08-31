@@ -11,39 +11,394 @@
 
 \subsection{矩阵序列}
 \label{sub:矩阵序列}
-\begin{lemma} $\MA \text{is} n \times n,$ 若存在一种矩阵范数 $\norm{\cdot}$使得 $\norm{\MA} < 1,$ 则 $\MA^k \to \MO$。 \end{lemma} \begin{theorem} 设 $\MA \text{is} n \times n$，则 $\MA^k \to \MO \Longleftrightarrow \rho(\MA) < 1$ \end{theorem} \begin{definition}[收敛矩阵] $\MA \text{is} n \times n$ \\ \[ \MA^k \to \MO \] \end{definition} \begin{definition}[界] \[ \abs{a_{ij}^{(k)}} < C \] 并称 $\SC$ 为$\{ \MA^{(k)} \}$ 的界。 \end{definition} \begin{inference} \[ \norm{\MA^k}^{\frac 1k} \to \rho{\MA} \] \end{inference} 
+
+\begin{lemma}
+    $\MA \text{is} n \times n,$ 若存在一种矩阵范数 $\norm{\cdot}$使得 $\norm{\MA} < 1,$ 则 $\MA^k \to \MO$。
+\end{lemma}
+
+\begin{theorem}
+    设 $\MA \text{is} n \times n$，则 $\MA^k \to \MO \Longleftrightarrow \rho(\MA) < 1$
+\end{theorem}
+
+\begin{definition}[收敛矩阵]
+    $\MA \text{is} n \times n$ \\
+    \[
+        \MA^k \to \MO
+    \]
+\end{definition}
+
+\begin{definition}[界]
+    \[
+        \abs{a_{ij}^{(k)}} < C
+    \]
+    并称 $\SC$ 为$\{ \MA^{(k)} \}$ 的界。
+\end{definition}
+
+\begin{inference}
+    \[
+        \norm{\MA^k}^{\frac 1k} \to \rho{\MA}
+    \]
+\end{inference}
+
 \subsection{矩阵级数}
 \label{sub:矩阵级数}
-\begin{definition}[矩阵级数] \[ \MA^{(0)} + \MA^{(1)} + \cdots \MA^{(k)} + \cdots = \sum \MA^{(k)} \] \end{definition} \begin{definition} \begin{description} \item[矩阵级数是发散的] \item[绝对收敛] \end{description} \end{definition} 
+
+\begin{definition}[矩阵级数]
+    \[
+        \MA^{(0)} + \MA^{(1)} + \cdots \MA^{(k)} + \cdots = \sum \MA^{(k)}
+    \]
+\end{definition}
+
+\begin{definition}
+    \begin{description}
+        \item[矩阵级数是发散的]
+        \item[绝对收敛]
+    \end{description}
+\end{definition}
+
 \subsection{矩阵幂级数}
 \label{sub:矩阵幂级数}
-\begin{theorem}[幂级数] \[ \sum \MA^k = \MI + \MA +\MA^2 + \cdots + \MA^k + \cdots = (\MI - \MA)^{-1} \] 收敛的充要条件是 $\MA$ 为收敛矩阵，且在收敛是，其和为 $(\MI - \MA)^{-1}.$ \end{theorem} \begin{theorem} $f(z) = \sum c_k z^k$的收敛半径为 $r.$ 若 $\ann$ 满足 $\rho(\MA) < r,$ 则矩阵幂级数 $\sum c_k \MA^k$ \emph{绝对收敛}；若 $rho(\MA) > r,$ 则矩阵幂级数发散。 \end{theorem} 
+
+\begin{theorem}[幂级数]
+    \[
+        \sum \MA^k =
+        \MI + \MA +\MA^2 + \cdots + \MA^k + \cdots = (\MI - \MA)^{-1}
+    \]
+    收敛的充要条件是 $\MA$ 为收敛矩阵，且在收敛是，其和为 $(\MI - \MA)^{-1}.$
+\end{theorem}
+
+\begin{theorem}
+    $f(z) = \sum c_k z^k$的收敛半径为 $r.$ 若 $\ann$ 满足 $\rho(\MA) < r,$ 则矩阵幂级数 $\sum c_k \MA^k$ \emph{绝对收敛}；若 $rho(\MA) > r,$ 则矩阵幂级数发散。
+\end{theorem}
+
 \section{矩阵函数}
 \label{sec:矩阵函数}
 
 \subsection{矩阵函数的定义与性质}
 \label{sub:矩阵函数的定义与性质}
-\begin{definition} 当矩阵 $\ann$ 的谱半径 $\rho(\MA) < r$ 时，矩阵幂级数 $\sum c_k \MA^k$ 收敛，称其和为 \emph{矩阵函数}，记为 \[ f(\MA) = \sum_0^{\infty} c_k \MA^k \] \end{definition} \begin{example} \[ \begin{dcases} f(z) = \frac{1}{1 - z} = \sum z^k, \quad & \abs{z} < 1 \\ f(\MA) = \sum \MA^k = (\MI - \MA)^{-1}, \quad & \rho(\MA) < 1 \end{dcases} \] \end{example} \begin{theorem} 若 $\MA, \MB$ 可交换，即 $\MA \MB = \MB \MA,$ 则 \[ e^{\MA} e^{\MB} = e^{\MB} e^{\MA} = e^{\MA + \MB} \] 同时， \[ \begin{cases} e^{\MA} e^{-\MA} = e^{-\MA} e^{\MA} = \MI \\ \left( e^{\MA} \right)^{-1} = e^{-\MA} \\ \left( e^{\MA} \right)^{k} = e^{k\MA} \end{cases} \] \end{theorem} 
+
+\begin{definition}
+    当矩阵 $\ann$ 的谱半径 $\rho(\MA) < r$ 时，矩阵幂级数 $\sum c_k \MA^k$ 收敛，称其和为 \emph{矩阵函数}，记为
+    \[
+        f(\MA) = \sum_0^{\infty} c_k \MA^k
+    \]
+\end{definition}
+
+\begin{example}
+    \[
+        \begin{dcases}
+            f(z) = \frac{1}{1 - z} = \sum z^k, \quad & \abs{z} < 1 \\
+            f(\MA) = \sum \MA^k = (\MI - \MA)^{-1}, \quad & \rho(\MA) < 1
+        \end{dcases}
+    \]
+\end{example}
+
+\begin{theorem}
+    若 $\MA, \MB$ 可交换，即 $\MA \MB = \MB \MA,$ 则
+    \[
+        e^{\MA} e^{\MB} = e^{\MB} e^{\MA} = e^{\MA + \MB}
+    \]
+    同时，
+    \[
+        \begin{cases}
+            e^{\MA} e^{-\MA} = e^{-\MA} e^{\MA} = \MI \\
+            \left( e^{\MA} \right)^{-1} = e^{-\MA} \\
+            \left( e^{\MA} \right)^{k} = e^{k\MA}
+        \end{cases}
+    \]
+\end{theorem}
+
 \subsection{矩阵函数值的计算}
 \label{sub:矩阵函数值的计算}
-\subsubsection{待定系数法} \label{ssub:待定系数法} \subsubsection{数项级数求和法} \label{ssub:数项级数求和法} \subsubsection{对角形法} \label{ssub:对角形法} 若 $\ann$ 相似于对角矩阵 $\Lambda,$即存在非奇异矩阵 $\MP,$使得 \[ \MP^{-1} \MA \MP = \Lambda = \mathrm{diag}(\lambda_1, \cdots, \lambda_n) \] 则有 \[ f(\MA) = \MP \cdot \mathrm{diag}\left(f(\lambda_1), \cdots, f(\lambda_n)\right) \cdot \MP^{-1} \] 当 $\MA$ 相似于对角矩阵是，矩阵幂级数的求和问题可以转化为求变换矩阵的问题。 \subsubsection{Jordan标准形法} \label{ssub:Jordan标准形法} \begin{definition} 设 $\MA$ 的 Jordan 标准形为 $\MJ,$ 则存在可逆矩阵 $\MP$ 使得 \[ \begin{dcases} \MP^{-1} \MA \MP = \MJ = \mathrm{diag}(\MJ_1, \cdots, \MJ_s) \\ f(\MA) = \MP \cdot \mathrm{diag}(f(\MJ_1), \cdots, f(\MJ_s)) \cdot \MP^{-1} \end{dcases} \] 去掉了收敛矩阵的限制。 \end{definition} \begin{theorem} 对于 $f(\MA)$ 与矩阵的 Jordan 标准形 $\MJ$ 中 Jordan 块的排列顺序无关，与变换矩阵 $\MP$ 的选取无关。 函数可相加，可相乘。 \[ \begin{dcases} f(z) = f_1(z) +f_2(z) \Longrightarrow f(\MA) = f_1(\MA) + f_2(\MA) \\ f(z) = f_1(z) f_2(z) \Longrightarrow f(\MA) = f_1(\MA)  f_2(\MA) \end{dcases} \] \end{theorem} 
+
+\subsubsection{待定系数法}
+\label{ssub:待定系数法}
+
+\subsubsection{数项级数求和法}
+\label{ssub:数项级数求和法}
+
+\subsubsection{对角形法}
+\label{ssub:对角形法}
+
+若 $\ann$ 相似于对角矩阵 $\Lambda,$即存在非奇异矩阵 $\MP,$使得
+\[
+    \MP^{-1} \MA \MP = \Lambda = \mathrm{diag}(\lambda_1, \cdots, \lambda_n)
+\]
+则有
+\[
+    f(\MA) = \MP \cdot \mathrm{diag}\left(f(\lambda_1), \cdots, f(\lambda_n)\right) \cdot \MP^{-1}
+\]
+
+当 $\MA$ 相似于对角矩阵是，矩阵幂级数的求和问题可以转化为求变换矩阵的问题。
+\subsubsection{Jordan标准形法}
+\label{ssub:Jordan标准形法}
+
+\begin{definition}
+    设 $\MA$ 的 Jordan 标准形为 $\MJ,$ 则存在可逆矩阵 $\MP$ 使得
+    \[
+        \begin{dcases}
+            \MP^{-1} \MA \MP = \MJ = \mathrm{diag}(\MJ_1, \cdots, \MJ_s) \\
+            f(\MA) = \MP \cdot \mathrm{diag}(f(\MJ_1), \cdots, f(\MJ_s)) \cdot \MP^{-1}
+        \end{dcases}
+    \]
+    去掉了收敛矩阵的限制。
+\end{definition}
+
+\begin{theorem}
+    对于 $f(\MA)$ 与矩阵的 Jordan 标准形 $\MJ$ 中 Jordan 块的排列顺序无关，与变换矩阵 $\MP$ 的选取无关。
+    函数可相加，可相乘。
+    \[
+        \begin{dcases}
+            f(z) = f_1(z) +f_2(z) \Longrightarrow f(\MA) = f_1(\MA) + f_2(\MA) \\
+            f(z) = f_1(z) f_2(z) \Longrightarrow f(\MA) = f_1(\MA)  f_2(\MA)
+        \end{dcases}
+    \]
+\end{theorem}
+
 \section{矩阵的微分和积分}
 \label{sec:矩阵的微分和积分}
 
 \subsection{以一元函数为元素的矩阵的微积分}
 \label{sub:以一元函数为元素的矩阵的微积分}
-\[ \MA(t) = \begin{bmatrix} \Sa_{11}(t) & \cdots    & \Sa_{1n}(t)   \\ \vdots      &           & \vdots        \\ \Sa_{m1}(t) & \cdots    & \Sa_{mn}(t) \end{bmatrix} \] 
+
+\[
+    \MA(t) = \begin{bmatrix}
+        \Sa_{11}(t) & \cdots    & \Sa_{1n}(t)   \\
+        \vdots      &           & \vdots        \\
+        \Sa_{m1}(t) & \cdots    & \Sa_{mn}(t)
+    \end{bmatrix}
+\]
+
 \subsection{函数对向量的微分}
 \label{sub:函数对向量的微分}
-\begin{definition} 设$f(\Vx)$为纯量函数，其中$\Vx = \left[x_1, \cdots, x_n \right]^T \in \SetC^n$，则 \[ \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix} \frac{\partial f(\Vx)}{\partial \Vx_1} \\ \vdots \\ \frac{\partial f(\Vx)}{\partial \Vx_n} \end{bmatrix} \] \end{definition} \begin{example} $\ann,$ $\vxx$ \[ f(\Vx) = \Vx^T \MA \Vx = \sum \sum a_{ij} x_i y_j \] 对 $\forall k = 1, \cdots , n,$ 有 \[ \frac{\partial f(\Vx)}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \sum \sum a_{ij} x_i y_j \right) = \sum a_{ik}x_i + \sum a_{kj}x_j \] 所以 \[ \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = \MA \Vx + \MA^T \Vx \] 若 $\MA$ 为对称矩阵，则 \[ \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = 2 \MA \Vx \] \end{example} \begin{definition} $\vxx_{[n \times 1]}, f(\Vx) =  \left[  f_1(\Vx), \ldots, f_m(\Vx)\right]_{1 \times m}$ \[ \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix} \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\ \vdots & & \vdots \\ \frac{\partial f_1(\Vx)}{\partial x_n} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n} \end{bmatrix}_{n \times m} \] \end{definition} \begin{definition}[Jacobi 矩阵] \[ \vxx_{[n \times 1]}, f(\Vx) = \begin{bmatrix} f_1(\Vx) \\ \vdots \\ f_m(\Vx) \end{bmatrix} \] \[ \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix} \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\ \vdots & & \vdots \\ \frac{\partial f_m(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n} \end{bmatrix}_{m \times n} \] \end{definition} \begin{theorem}[链式法则] \[ \frac{\partial f}{\partial \Vx} = \frac{\partial \Vy^T}{\partial \Vx} \frac{\partial f}{\partial \Vy} \Longleftrightarrow \frac{\partial f(\Vy(\Vx))}{\partial \Vx} = \frac{\partial \left(\Vy(\Vx)\right)^T}{\partial \Vx} \frac{\partial f(\Vy)}{\partial \Vy} \] \end{theorem} \begin{definition}[Hessian 矩阵] $\vxx$ 纯量函数关于向量的二阶微分是由 $n^2$ 个二阶偏导组成的 $n \times n$ 阶矩阵，称为 Hessian 矩阵。 \[ \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} = \frac{\partial}{\partial \Vx^T} (\frac{\partial f(\Vx)}{\partial \Vx}) \] \[ \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} = \begin{bmatrix} \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_n}    \\ \vdots & & \vdots \\ \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_n} \end{bmatrix} \] 特别的，若 $f(\Vx) = \Vx^T \MA \Vx$，则 \[ \frac{\partial^2 (\Vx^T \MA \Vx)}{\partial \Vx \partial \Vx^T} = \MA +\ MA^T \] \end{definition} 
+
+\begin{definition}
+    设$f(\Vx)$为纯量函数，其中$\Vx = \left[x_1, \cdots, x_n \right]^T \in \SetC^n$，则
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} =
+        \begin{bmatrix}
+            \frac{\partial f(\Vx)}{\partial \Vx_1} \\
+            \vdots \\
+            \frac{\partial f(\Vx)}{\partial \Vx_n}
+        \end{bmatrix}
+    \]
+\end{definition}
+
+\begin{example}
+    $\ann,$ $\vxx$
+    \[
+        f(\Vx) = \Vx^T \MA \Vx = \sum \sum a_{ij} x_i y_j
+    \]
+    对 $\forall k = 1, \cdots , n,$ 有
+    \[
+        \frac{\partial f(\Vx)}{\partial x_k} = \frac{\partial}{\partial x_k} \left( \sum \sum a_{ij} x_i y_j \right) = \sum a_{ik}x_i + \sum a_{kj}x_j
+    \]
+    所以
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = \MA \Vx + \MA^T \Vx
+    \]
+    若 $\MA$ 为对称矩阵，则
+    \[
+        \frac{\partial \Vx^T \MA \Vx}{\partial \Vx} = 2 \MA \Vx
+    \]
+\end{example}
+
+\begin{definition}
+    $\vxx_{[n \times 1]}, f(\Vx) =  \left[  f_1(\Vx), \ldots, f_m(\Vx)\right]_{1 \times m}$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_1(\Vx)}{\partial x_n} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}_{n \times m}
+    \]
+\end{definition}
+
+\begin{definition}[Jacobi 矩阵]
+    \[
+        \vxx_{[n \times 1]}, f(\Vx) = \begin{bmatrix}
+            f_1(\Vx) \\
+            \vdots \\
+            f_m(\Vx)
+        \end{bmatrix}
+    \]
+
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_m(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}_{m \times n}
+    \]
+\end{definition}
+
+\begin{theorem}[链式法则]
+    \[
+        \frac{\partial f}{\partial \Vx} = \frac{\partial \Vy^T}{\partial \Vx} \frac{\partial f}{\partial \Vy}
+        \Longleftrightarrow
+        \frac{\partial f(\Vy(\Vx))}{\partial \Vx} = \frac{\partial \left(\Vy(\Vx)\right)^T}{\partial \Vx} \frac{\partial f(\Vy)}{\partial \Vy}
+    \]
+\end{theorem}
+
+\begin{definition}
+    $\vxx$
+    纯量函数关于向量的二阶微分是由 $n^2$ 个二阶偏导组成的 $n \times n$ 阶矩阵，称为 Hessian 矩阵。
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} = \frac{\partial}{\partial \Vx^T} (\frac{\partial f(\Vx)}{\partial \Vx})
+    \]
+
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} =
+        \begin{bmatrix}
+            \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_n}    \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_n}
+        \end{bmatrix}
+    \]
+    特别的，若 $f(\Vx) = \Vx^T \MA \Vx$，则
+    \[
+        \frac{\partial^2 (\Vx^T \MA \Vx)}{\partial \Vx \partial \Vx^T} = \MA +\ MA^T
+    \]
+\end{definition}
+
+
+\begin{definition}[向量值函数$f(\Vx)$对向量$\Vx$的微分]
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_1(\Vx)}{\partial x_n}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+    \]
+\end{definition}
+
+\begin{definition}[Jacobi矩阵]
+    $\Vx = \left[x_1, \cdots, x_n \right]^T$，$f(\Vx) = \left[f_1(\Vx), \cdots, f_m(\Vx) \right]^T$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_m(\Vx)}{\partial x_1}  & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}
+    \]
+\end{definition}
+
+
+\begin{definition}[Hessian矩阵]
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T } = \frac{\partial}{\partial \Vx^T} \left(\frac{\partial f(\Vx)}{\partial \Vx} \right) = \begin{bmatrix}
+            \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_1 \partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_1} &  \cdots & \frac{\partial^2 f(\Vx)}{\partial x_n \partial x_n}
+        \end{bmatrix}
+    \]
+    若$f(\Vx) = \Vx^T\MA\Vx$，则
+    \[
+        \frac{\partial^2(\Vx^T\MA\Vx)}{\partial \Vx \, \partial \Vx^T} = \MA + \MA^T
+    \]
+\end{definition}
+
 \subsection{函数对矩阵的微分}
 \label{sub:函数对矩阵的微分}
-\subsubsection{定义与性质} \label{ssub:定义与性质} \begin{definition}[纯量函数$f(\MA)$对矩阵$\MA$的微分定义] \[ \frac{\partial f(\MA)}{\partial \MA} = \begin{bmatrix} \frac{\partial f(\MA)}{\partial a_{11}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{1n}} \\ \vdots                                      &   \ddots  &   \vdots                                  \\ \frac{\partial f(\MA)}{\partial a_{m1}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{mn}} \end{bmatrix} \] \end{definition} \begin{theorem} \[ \frac{\partial g}{\partial \MA} = \frac{\partial g}{\partial y} \frac{\partial y}{\partial \MA} \Longleftrightarrow \frac{\partial g(f(\MA))}{\partial \MA} = \frac{\partial g(y)}{\partial y} \frac{\partial f(\MA)}{\partial \MA} \] \end{theorem} 记 $\ME_{ij} = \Ve_i \Ve_j^T,$ 即第 $i$ 行第 $j$ 列元素为 1， 其余元素为零的矩阵。 \[ \frac{\partial \left( \Va^T \MX^{-1} \Vb\right)}{\partial \MX} = - \left(\MA^{-1}\right)^T \Va \Vb^T \left(\MX^{-1}\right)^T \] \subsubsection{迹的梯度矩阵} \label{ssub:迹的梯度矩阵} \begin{theorem} \[ \begin{aligned} \frac{\partial \Tr \MX}{\partial \MX } = \MI \\ \frac{\partial \Tr (\MX^{-1})}{\partial \MX} = -(\MX^{-2})^T \end{aligned} \] \end{theorem} \[ \Tr(\MA\MX) = \sum_{i = 1}^m \sum_{j = 1}^n a_{ij} x_{ij} \] \begin{theorem} \[ \begin{aligned} \frac{\partial \Tr(\MA \MX)}{\partial \MX} = \MA^T \\ \frac{\partial \Tr (\MA\MX)}{\partial\MX} = \MA + \MA^T - \mathrm{diag}\MA \\ \frac{\partial \Tr(\MA \MX^{-1})}{\partial \MX} = - \left(\MX^{-1} \MA \MX^{-1}\right)^T \end{aligned} \] \end{theorem} \begin{theorem} \[ \begin{aligned} \frac{\partial \Tr(\MX^T \MA \MX)}{\partial \MX} = (\MA + \MA^T) \MX \\ \frac{\partial \MX \MA \MX^T}{\partial \MX} = \MX (\MA + \MA^T) \\ \frac{\partial \Tr(\MA \MX^{-1} \MB)}{\partial \MX} = -\left(\MX^{-1} \MB \MA \MX^{-1}\right)^T \end{aligned} \] \end{theorem} \subsubsection{行列式的梯度矩阵} \label{ssub:行列式的梯度矩阵} \begin{theorem} 若 $\MX$ 中的元素相互独立，则 \[ \frac{\partial \det \MX}{\partial \MX} = \det \MX \cdot (\MX^{-1})^T \] 若 $\MX$ 为对称矩阵，则 \[ \frac{\partial \det \MX}{\partial \MX} = \det \MX \cdot (2 \MX^{-1} - \diag(\MX^{-1}) \] \end{theorem} 
+
+\subsubsection{定义与性质}
+\label{ssub:定义与性质}
+
+\begin{definition}[纯量函数$f(\MA)$对矩阵$\MA$的微分定义]
+    \[
+        \frac{\partial f(\MA)}{\partial \MA} = \begin{bmatrix}
+            \frac{\partial f(\MA)}{\partial a_{11}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{1n}} \\
+            \vdots                                      &   \ddots  &   \vdots                                  \\
+            \frac{\partial f(\MA)}{\partial a_{m1}}     &   \ldots  &   \frac{\partial f(\MA)}{\partial a_{mn}}
+        \end{bmatrix}
+    \]
+\end{definition}
+
+\begin{theorem}
+    \[
+        \frac{\partial g}{\partial \MA} =
+        \frac{\partial g}{\partial y} \frac{\partial y}{\partial \MA}
+        \Longleftrightarrow
+        \frac{\partial g(f(\MA))}{\partial \MA} =
+        \frac{\partial g(y)}{\partial y} \frac{\partial f(\MA)}{\partial \MA}
+    \]
+\end{theorem}
+
+记 $\ME_{ij} = \Ve_i \Ve_j^T,$ 即第 $i$ 行第 $j$ 列元素为 1， 其余元素为零的矩阵。
+
+\[
+    \frac{\partial \left( \Va^T \MX^{-1} \Vb\right)}{\partial \MX} = -\left(\MA^{-1}\right)^T \Va \Vb^T \left(\MX^{-1}\right)^T
+\]
+
+\subsubsection{迹的梯度矩阵}
+\label{ssub:迹的梯度矩阵}
+
+\begin{theorem}
+    \[
+        \begin{aligned}
+            \frac{\partial \Tr \MX}{\partial \MX } = \MI \\
+            \frac{\partial \Tr (\MX^{-1})}{\partial \MX} = -(\MX^{-2})^T
+        \end{aligned}
+    \]
+\end{theorem}
+
+ \[
+     \Tr(\MA\MX) = \sum_{i = 1}^m \sum_{j = 1}^n a_{ij} x_{ij}
+ \]
+
+\begin{theorem}
+    \[
+        \begin{aligned}
+            \frac{\partial \Tr(\MA \MX)}{\partial \MX} = \MA^T \\
+            \frac{\partial \Tr (\MA\MX)}{\partial\MX} = \MA + \MA^T - \mathrm{diag}\MA \\
+            \frac{\partial \Tr(\MA \MX^{-1})}{\partial \MX} = - \left(\MX^{-1} \MA \MX^{-1}\right)^T
+        \end{aligned}
+    \]
+\end{theorem}
+
+\begin{theorem}
+    \[
+        \begin{aligned}
+            \frac{\partial \Tr(\MX^T \MA \MX)}{\partial \MX} = (\MA + \MA^T) \MX \\
+            \frac{\partial \MX \MA \MX^T}{\partial \MX} = \MX (\MA + \MA^T) \\
+            \frac{\partial \Tr(\MA \MX^{-1} \MB)}{\partial \MX} = -\left(\MX^{-1} \MB \MA \MX^{-1}\right)^T
+        \end{aligned}
+    \]
+\end{theorem}
+
+\subsubsection{行列式的梯度矩阵}
+\label{ssub:行列式的梯度矩阵}
+
+\begin{theorem}
+    若 $\MX$ 中的元素相互独立，则
+    \[
+        \frac{\partial \det \MX}{\partial \MX} = \det \MX \cdot (\MX^{-1})^T
+    \]
+    若 $\MX$ 为对称矩阵，则
+    \[
+        \frac{\partial \det \MX}{\partial \MX} = \det \MX \cdot (2 \MX^{-1} - \diag(\MX^{-1})
+    \]
+\end{theorem}
+
 \subsection{矩阵对矩阵的微分}
 \label{sub:矩阵对矩阵的微分}
-\begin{definition}[矩阵$\MF(\MX)$对$\MX$的微分] $\MX \in \SetC^{m \times n}$，$f_{ij}(\MX)$为$mn$元纯量函数($i\colon 1 \to p,\, j\colon 1 \to q$)，记矩阵函数$\MF(\MX) = \left( f_{ij}(\MX) \right)$ \[ \frac{\partial \MF(\MX)}{\partial \MX} = \left[ \mathrm{vec} \left(\frac{\partial f_{11}}{\partial \MX}  \right), \mathrm{vec} \left(\frac{\partial f_{12}}{\partial \MX}  \right), \ldots, \mathrm{vec} \left(\frac{\partial f_{pq}}{\partial \MX}  \right) \right] \] \end{definition} 
+
+\begin{definition}[矩阵$\MF(\MX)$对$\MX$的微分]
+    $\MX \in \SetC^{m \times n}$，$f_{ij}(\MX)$为$mn$元纯量函数($i\colon 1 \to p,\, j\colon 1 \to q$)，记矩阵函数$\MF(\MX) = \left( f_{ij}(\MX) \right)$
+    \[
+        \frac{\partial \MF(\MX)}{\partial \MX} =
+        \left[
+            \mathrm{vec}\left(\frac{\partial f_{11}}{\partial \MX}  \right),
+            \mathrm{vec}\left(\frac{\partial f_{12}}{\partial \MX}  \right),
+            \ldots,
+            \mathrm{vec}\left(\frac{\partial f_{pq}}{\partial \MX}  \right)  \right]
+    \]
+\end{definition}
+
 \section{一些应用}
 \label{sec:一些应用}
+
 
 \subsection{特征多项式系数的表示}
 \label{sub:特征多项式系数的表示}
