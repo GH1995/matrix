@@ -207,6 +207,63 @@
     \]
 \end{example}
 
+\begin{definition}
+    $\vxx_{[n \times 1]}, f(\Vx) =  \left[  f_1(\Vx), \ldots, f_m(\Vx)\right]_{1 \times m}$
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_1} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_1(\Vx)}{\partial x_n} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}_{n \times m}
+    \]
+\end{definition}
+
+\begin{definition}[Jacobi 矩阵]
+    \[
+        \vxx_{[n \times 1]}, f(\Vx) = \begin{bmatrix}
+            f_1(\Vx) \\
+            \vdots \\
+            f_m(\Vx)
+        \end{bmatrix}
+    \]
+
+    \[
+        \frac{\partial f(\Vx)}{\partial \Vx^T} = \begin{bmatrix}
+            \frac{\partial f_1(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_1(\Vx)}{\partial x_n} \\
+            \vdots & & \vdots \\
+            \frac{\partial f_m(\Vx)}{\partial x_1} & \cdots & \frac{\partial f_m(\Vx)}{\partial x_n}
+        \end{bmatrix}_{m \times n}
+    \]
+\end{definition}
+
+\begin{theorem}[链式法则]
+    \[
+        \frac{\partial f}{\partial \Vx} = \frac{\partial \Vy^T}{\partial \Vx} \frac{\partial f}{\partial \Vy}
+        \Longleftrightarrow
+        \frac{\partial f(\Vy(\Vx))}{\partial \Vx} = \frac{\partial \left(\Vy(\Vx)\right)^T}{\partial \Vx} \frac{\partial f(\Vy)}{\partial \Vy}
+    \]
+\end{theorem}
+
+\begin{definition}
+    $\vxx$
+    纯量函数关于向量的二阶微分是由 $n^2$ 个二阶偏导组成的 $n \times n$ 阶矩阵，称为 Hessian 矩阵。
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} = \frac{\partial}{\partial \Vx^T} (\frac{\partial f(\Vx)}{\partial \Vx})
+    \]
+
+    \[
+        \frac{\partial^2 f(\Vx)}{\partial \Vx \partial \Vx^T} =
+        \begin{bmatrix}
+            \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_1 \partial \Vx_n}    \\
+            \vdots & & \vdots \\
+            \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_1}    & cdots &     \frac{\partial^2 f(\Vx)}{\partial \Vx_n \partial \Vx_n}
+        \end{bmatrix}
+    \]
+    特别的，若 $f(\Vx) = \Vx^T \MA \Vx$，则
+    \[
+        \frac{\partial^2 (\Vx^T \MA \Vx)}{\partial \Vx \partial \Vx^T} = \MA +\ MA^T
+    \]
+\end{definition}
 
 
 \begin{definition}[向量值函数$f(\Vx)$对向量$\Vx$的微分]

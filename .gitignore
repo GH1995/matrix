@@ -1,4 +1,4 @@
-*.pdf
+# *.pdf
 *.fdb_latexmk
 *.thm
 *.log
