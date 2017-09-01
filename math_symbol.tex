@@ -2,8 +2,8 @@
 \newcommand{\argmax}{\arg\max}
 \newcommand{\argmin}{\arg\min}
 \newcommand{\sigmoid}{\text{sigmoid}}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\abs}[1]{\left\lvert#1\right\rvert}
+% \newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+% \newcommand{\abs}[1]{\left\lvert#1\right\rvert}
 \newcommand{\Tr}{\text{Tr}}
 
 \newcommand{\Var}{\text{Var}}
@@ -291,6 +291,8 @@
 
 % 自定义命令
 \renewcommand\emph[1]{\textbf{#1}}
+\renewcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\renewcommand{\abs}[1]{\left\lvert#1\right\rvert}
 % \renewcommand\emph[1]{\heiti{#1}}
 \newcommand\amn{\MA \quad \text{is} \quad m \times n}
 \newcommand\ann{\MA \quad \text{is} \quad n \times n}
@@ -300,4 +302,4 @@
     x_n
 \end{bmatrix}}
 \newcommand{\diag}{\mathop{\mathrm{diag}}}
-
+\DeclareMathOperator*{\cond}{\mathrm{cond}\,}

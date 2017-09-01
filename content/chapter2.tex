@@ -22,9 +22,6 @@
 \subsection{常用向量范数}
 \label{sub:常用向量范数}
 
-\subsection{向量范数的分析性质}
-\label{sub:向量范数的分析性质}
-
 \begin{definition}[1-范数或$l_1$范数]
     $\norm{\Vx}_1$ \quad 向量元素绝对值之和
 \end{definition}
@@ -50,15 +47,57 @@
     \norm{\Vx}_{\MA} = \left( \Vx^T\MA\Vx \right)^{\frac{1}{2}}
     $$
 \end{definition}
+\[
+    \vxx
+\]
+
+\begin{align}
+    \norm{\Vx}_1 &= \sum \abs{x_i} \\
+    \norm{\Vx}_2 &= \left(\sum \abs{x_i}^2\right)^{\frac{1}{2}} \\
+    \norm(\Vx)_{\infty} &= {\max}_{i \leqslant i \leqslant n}\abs{x_i}
+\end{align}
+
+\begin{definition}[$H\ddot{o}lder$不等式]
+    $\frac{1}{p} \frac{1}{q} = 1$
+    \[
+        \begin{aligned}
+            \sum \abs{x_i y_i} &\leqslant
+                \left(\sum \abs{x_i}^p\right)^{\frac{1}{p}} \left( \sum \abs{y_i}^q\right)^{\frac{1}{q}} \\
+                \text{内积} &\leqslant \text{范数} \norm{a}_p \cdot \text{范数} \norm{b}_q
+        \end{aligned}
+    \]
+\end{definition}
+
+\begin{definition}[Minkowski不等式]
+    \[
+        \begin{aligned}
+            \left(\sum \abs{x_i + y_i}^p\right)^{\frac{1}{p}} &\leqslant (\sum \abs{x_i}^p)^{\frac{1}{p}}
+            + \left(\sum \abs{y_i}^p\right)^{\frac{1}{p}} \\
+            \norm{a \oplus b}_p &\leqslant \norm{a}_p + \norm{b}_p
+        \end{aligned}
+    \]
+\end{definition}
+
+\begin{definition}[加权范数]
+    $\ann$  是 Hermite 正定矩阵
+    \[
+        \norm{\Vx}_{\MA} = \left(\Vx^T \MA \Vx\right)^{\frac{1}{2}}
+    \]
+\end{definition}
+
+\subsection{向量范数的分析性质}
+\label{sub:向量范数的分析性质}
+
+所有向量范数都是等价的。
 
 \subsection{向量范数的代数性质}
 \label{sub:向量范数的代数性质}
 
 \begin{definition}
-    $\MA \in \SetC^{m \times n}$满列秩，则$\MA^TA$为 \textrm{Hermite}正定矩阵，从而
-    $$
-    \norm{\Vx}_{\MA} = \norm{\MA \Vx}
-    $$
+    $amn$ 满列秩，则$\MA^TA$为 \textrm{Hermite}正定矩阵，从而
+    \[
+        \norm{\Vx}_{\MA} = \norm{\MA \Vx}
+    \]
 \end{definition}
 
 \section{矩阵范数}
@@ -69,41 +108,83 @@
 
 \begin{definition}[(广义)矩阵范数是酉不变的]
     矩阵前后乘以两个酉阵范数大小不变
-    $$
-    \norm{\MU \MA \MV} = \norm{\MA}
-    $$
+    \[
+        \norm{\MU \MA \MV} = \norm{\MA}
+    \]
 \end{definition}
+
+\begin{theorem}
+    矩阵范数也具有与向量范数一样的等价性。
+\end{theorem}
 
 \begin{definition}[矩阵范数与向量范数相容]
-    $\MA \in \SetC^{m \times n}, \Vx \in \SetC^{n}$
-    $$
-    \norm{\MA \Vx}_{V} \leq \norm{\MA}_M \norm{\Vx}_V
-    $$
+    $\amn, \vxx$
+    \[
+        \norm{\MA \Vx}_{V} \leqslant \norm{\MA}_M \norm{\Vx}_V
+    \]
 \end{definition}
 
+\begin{theorem}
+    $\norm{\cdot}_M$ 是 $n \times n$ 上的矩阵范数
+    $\norm{\cdot}_V$ 是 $n$ 上的矩阵范数
+    可以得到
+    \[
+        \norm{\MA \Vx}_V = \norm{\MA}_M \norm{\Vx}_V
+    \]
+    $\norm{\cdot}_M$ 与 $\norm{\cdot}_V$ 相容。
+\end{theorem}
 
 \subsection{常用的矩阵范数}
 \label{sub:常用的矩阵范数}
 
+\begin{definition}[$l_1$范数]
+    \[
+        \norm{\MA}_{m_1} = \sum \sum \abs{a_{ij}}
+    \]
+\end{definition}
+
 \begin{definition}[$l_2$范数，Euclid范数，Frobenius范数]
-    $$
-    \norm{\MA}_F = \left ( \sum \sum |a_{ij}|^2 \right)^{\frac{1}{2}}
-    $$
+    \[
+        \norm{\MA}_F =
+        \left ( \sum \sum \abs{a_{ij}}^2 \right)^{\frac{1}{2}}
+    \]
 \end{definition}
 
 重要：
-$$
-\norm{\MA}_F^2 = \mathrm{tr}(\MA^T\MA)
-$$
+\[
+    \begin{aligned}
+        \norm{\MA \MB}_F^2 &= \norm{\MA}_F^2 \norm{\MB}_F^2 \\
+        \norm{\MA}_F^2 &= \Tr(\MA^T\MA) \\
+        \norm{\MA \Vx}_2 = \norm{\MA}_F^2 \norm{\Vx}_2
+    \end{aligned}
+\]
+
+$\norm{\cdot}_{m_{\infty}}$ 是广义矩阵范数不是矩阵范数。
 
 \subsection{由向量范数诱导的矩阵范数}
 \label{sub:由向量范数诱导的矩阵范数}
 
-\begin{definition}[有向量范数诱导的矩阵范数或算子范数]
-    $$
-    \norm{\MA} = \max_{\norm{\Vx}=1} \norm{\MA \Vx} = \max_{\Vx \neq 0} \frac{\norm{\MA\Vx}}{\norm{\Vx}}
-    $$
+\begin{definition}[向量范数诱导的矩阵范数]
+    $\amn$
+    \[
+        \norm{\MA} =
+        \max_{\norm{\Vx}=1} \norm{\MA \Vx}
+        = \max_{\Vx \neq 0} \frac{\norm{\MA\Vx}}{\norm{\Vx}}
+    \]\\
+    与向量范数相容。
 \end{definition}
+
+\begin{theorem}
+    任何向量范数都可以诱导出相应的矩阵范数。
+\end{theorem}
+
+\begin{theorem}
+    \begin{description}
+        \item[列和范数] $\norm{\MA}_1 = \max_{1 \leqslant j \leqslant n} \sum_{i=1}^m \abs{a_{ij}}$
+        \item[谱范数] $\norm{\MA}_2= \sqrt{\lambda_1},$ $\lambda_1$ 为 $\MA^T \MA$ 的最大特征值
+        \item[行和范数] $\norm{\MA}_{\infty} = \max_{1 \leqslant i \leqslant m} \sum_{j=1}^n \abs{a_{ij}}$
+    \end{description}
+\end{theorem}
 
 \section{一些应用}
 \label{sec:一些应用}
@@ -111,17 +192,67 @@ $$
 \subsection{谱半径与矩阵范数}
 \label{sub:谱半径与矩阵范数}
 
+\begin{theorem}
+    \[
+        \norm{\MA}_2 = \rho^{\frac{1}{2}}(\MA^T \MA) = \rho^{\frac{1}{2}}(\MA^T \MA)
+    \]
+    若 $\MA$ 为 Hermite 矩阵，则
+    \[
+        \norm{\MA} = \rho(\MA)
+    \]
+\end{theorem}
+
+对于一般矩阵范数，任意矩阵的谱半径均被矩阵范数数值所控制。
+
+\begin{theorem}
+    $\ann$
+    \[
+        \rho(\MA) = \norm{\MA}
+    \]
+\end{theorem}
+
+\begin{inference}
+    虽然谱半径不是矩阵范数，但是对每个固定的方阵 $\MA,$ 谱半径是关于 $\MA$ 的所有矩阵数值的下确界。
+\end{inference}
+
 \subsection{矩阵逆与线性方程组解的扰动问题}
 \label{sub:矩阵逆与线性方程组解的扰动问题}
+
+\[
+    \MA \Vx = \Vb
+\]
+
+\begin{definition}
+    \[
+        \kappa = \norm{\MA} \norm{\MA}^{-1}
+    \]
+    若 $\kappa$ 越大，则方程组解的相对误差也越大。
+\end{definition}
 
 \subsection{条件数}
 \label{sub:条件数}
 
 \begin{definition}[条件数]
-    $\MA \in \SetC^{n \times n}$非奇异
-    $\norm{\MA}\norm{\MA^{-1}}$是条件数，记为$\mathrm{cond}(\MA)$
-    $$
-    \mathrm{cond}_2(\MA) = \norm{\MA}_2\norm{\MA^{-1}}_2
-    $$
+    $\ann$非奇异，$\norm{\MA}\norm{\MA^{-1}}$是条件数，记为$\cond( \MA )$
+
+    \[
+        \cond_2(\MA) = \norm{\MA}_2\norm{\MA^{-1}}_2
+    \]
 \end{definition}
 
+\begin{theorem}
+    $\ann$ 非奇异
+    \begin{enumerate}
+        \item $\cond( \alpha \MA ) = \cond( \MA ) = \cond( \MA )$
+        \item $\cond_p(\MA) \geqslant 1$
+        \item \begin{align}
+            \cond_2(\MA) &=
+                \left(\frac{\lambda_{max}\left(\MA^T\MA\right)}{\lambda_{min}\left(\MA^T\MA\right)}\right)^{\frac{1}{2}} \\
+                \intertext{若 $\MA$ 为 Hermite 矩阵，则}
+                \cond_2(\MA) &= \frac{\lambda_{max}(\MA)}{\lambda_{min}(\MA)}
+        \end{align}
+        \item $\cond_2^2(\MA) = \cond_2(\MA^T \MA)$
+    \end{enumerate}
+\end{theorem}
+
+当条件数 $\cond(\MA)$ 的值很大时，我们称 $\MA$ 为病态的。
