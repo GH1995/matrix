@@ -14,11 +14,13 @@
 
 \begin{definition}[满秩分解]
     一个秩为$r$的矩阵被分解为一个列数为$r$的矩阵和一个行数为$r$的矩阵的乘积。
+
     \begin{itemize}
         \item $\MA \in \SetC^{m \times n}$，$r = \mathrm{rank}\, \MA > 0$
         \item $\MF \in \SetC^{m \times r}$，满列秩矩阵
         \item $\MG \in \SetC^{r \times n}$，满行秩矩阵
     \end{itemize}
+
     $$
     \MA = \MF \MG
     $$
@@ -31,15 +33,23 @@
 \label{sub:LU分解}
 
 \begin{definition}[LU分解]
+
     一个$n \times n$的矩阵可以分解为一个$n$阶的下三角矩阵和上三角矩阵。$\MA$的绝对值等于$\MU$对角线元素之积。
+
     \begin{itemize}
         \item $\MA \in \SetC^{n \times n}$
         \item $\ML$为$n$阶下三角矩阵
         \item $\MU$为$n$阶上三角矩阵
     \end{itemize}
+
     $$
     \det \MA = \Su_{11}\ldots \Su_{nn}
     $$
+
+    $$
+    \text{非奇异} \Longrightarrow \text{LU 分解唯一}
+    $$
+
 \end{definition}
 
 \subsection{LDU分解}
@@ -59,7 +69,7 @@
 \label{sub:Cholesky分解}
 
 \begin{definition}[Cholesky分解，又叫平方根分解]
-    一个$n \times n$的对称正定矩阵被分解为一个下三角矩阵和它转置矩阵的乘积。
+    一个$n \times n$的对称正定矩阵被分解为一个\emph{下三角矩阵}和\emph{它转置矩阵}的乘积。
     $$
     \MA = \MG \MG^T
     $$
@@ -82,8 +92,8 @@
     $$
     \begin{itemize}
         \item $\MA \in \SetC^{m \times n}$
-        \item $\MQ \in \SetC^{m \times n}$列正交矩阵
-        \item $\MR \in \SetC^{n \times n}$上三角矩阵
+        \item $\MQ \, \text{is} \, m \times n$列正交矩阵，并且是酉阵
+        \item $\MR \, \text{is} \, n \times n$上三角矩阵
     \end{itemize}
 \end{definition}
 
@@ -93,19 +103,83 @@
 \subsection{Householder变换法}
 \label{sub:Householder变换法}
 
+在二维空间中，将 $\Vx$ 映射为关于 $\Ve_1$轴对称的向量$\Vy$的变换为：
+\[
+    \Vy = \begin{bmatrix}
+        1 & 0 \\
+        0 & -1
+    \end{bmatrix} \Vx
+\]
+$\Vy$ 为关于与$\Ve_2$轴正交的直线对称的镜像向量，此时
+\[
+    \Vy = \left( \MI - 2\Ve_2 \Ve_2^T\right) \Vx
+\]
+
 \begin{definition}[初等反射矩阵，又叫Householder矩阵]
     $$
     \MH_{\Vu} = \MI - 2\Vu \Vu^T
     $$
 \end{definition}
 
+\begin{lemma}
+    $\MH$ 为 Householder 矩阵，则
+    \begin{enumerate}
+        \item $\MH$ 为 Hermite 矩阵，对称
+        \item $\MH$ 为 酉阵
+        \item $\MH^2 = \MI$
+        \item $\det H = -1$
+        \item 分块对角矩阵 $\diag(\MI_m, \MH, \MI_n)$为 Householder 矩阵
+    \end{enumerate}
+\end{lemma}
+
+\begin{lemma}
+    $\forall \Vx \, \text{is}\, n \times n, \exists \MH$
+    \[
+        \MH \Vx = \left\lVert \Vx \right\rVert_2 \Ve_1
+    \]
+\end{lemma}
+
+\begin{theorem}
+    任意非奇异矩阵都可以通过左乘一系列 Householder 矩阵化为上三角矩阵。
+\end{theorem}
+
 \subsection{Givens旋转法}
 \label{sub:Givens旋转法}
+
+在二维空间中将 $\Vx$ 顺时针旋转角度为 $\theta$ $\Vy$ 的变换为
+\[
+    \Vy = \begin{bmatrix}
+        \cos \theta & \sin \theta \\
+        - \sin \theta & \cos \theta
+    \end{bmatrix} \Vx
+\]
 
 \begin{definition}[初等旋转矩阵，又叫Givens矩阵]
     设$c^2 + s^2 = 1$
     $\MG_{ij}$是这样的一个矩阵，对角线一般为1，除了$g_{ii}=c,\,g_{jj}=1$，$g_{ij}=-s,\,g_{ji}=s$，记为$G_{ij}(c,s)$。
 \end{definition}
+
+\begin{lemma}
+    \item Givens矩阵为正交矩阵
+    \item $\MG_{ij}(c,s)^{-1} = \MG_{ij}^T = \MG_{ij}(c,-s)$
+    \item $\det \MG_{ij}(c,s) = 1$
+    \item 分块对角矩阵$\diag(\MI_m, \MG_{ij}(c,s), \MI_n)$为Givens矩阵
+\end{lemma}
+
+\begin{statement}
+    Givens 矩阵为两个 Householder 矩阵的乘积。
+\end{statement}
+
+\begin{lemma}
+    对 $\forall \Vx \quad \text{is} \quad n \times n, \exists$有限个Givens矩阵的乘积$\MG$，使得
+    \[
+        \MG \Vx = \norm{\Vx}_2 \Ve_1
+    \]
+\end{lemma}
+
+\begin{theorem}
+    $\forall \text{非奇异}\RVa$均可通过左乘一系列 Givens 矩阵化为上三角矩阵。
+\end{theorem}
 
 \section{奇异值分解}
 \label{sec:奇异值分解}
@@ -114,10 +188,14 @@
 \label{sub:定义及性质}
 
 \begin{definition}[奇异值]
-    $$
-    \sigma_i = \sqrt{\lambda_i}
-    $$
-    注意： $\lambda_i$ 不是$\MA$的特征值！
+
+    \[
+        \sigma_i = \sqrt{\lambda_i}
+    \]
+    $\sigma_i$ 称为 $\MA$的奇异值。
+
+    注意： $\lambda_i$ \emph{不是}$\MA$\emph{的特征值！}
+
     \begin{itemize}
         \item $\MA$是$m \times n$的矩阵，秩为$r$
         \item 那么$\MA^T\MA$为半正定矩阵，秩也为$r$
@@ -125,8 +203,64 @@
     \end{itemize}
 \end{definition}
 
+\begin{theorem}
+    \[
+        \MA = \MU \begin{bmatrix}
+            \Sigma  &   0 \\
+            0       &   0
+        \end{bmatrix} \MV^T
+    \]
+
+    \begin{itemize}
+        \item $\MU, \MV$为酉阵
+        \item $\Sigma = \diag(\sigma_1, \ldots, \sigma_r)$
+    \end{itemize}
+\end{theorem}
+
+\begin{inference}
+    \begin{itemize}
+        \item $\MU$的列向量为$\MA\MA^T$的特征向量
+        \item $\MV$的列向量为$\MA\MA^T$的特征向量
+    \end{itemize}
+    奇异值唯一确定，但是$\MU, \MV$一般不唯一。
+
+    \[
+        \begin{dcases}
+            \norm{\MA}_2 = \sigma_1 \\
+            \norm{\MA}_F = \left(\sum_1^r \sigma_i^2\right)^{\frac{1}{2}}
+        \end{dcases}
+    \]
+\end{inference}
+
+\begin{inference}
+    $\MU = \left[\Vu_1, \ldots, \Vu_m\right],\, \MV = \left[\Vv_1, \ldots, \Vv_n\right],$则
+    \[
+        \MA = \sum_{i=1}^r \sigma_i \Vu_i\Vv_i^T
+    \]
+\end{inference}
+
 \subsection{极分解}
 \label{sub:极分解}
+
+\begin{theorem}
+    $\ann,$则$\MA$可以分解为
+    \[
+        \MA = \MP \MW = \MW \MQ
+    \]
+
+    \begin{itemize}
+        \item $\MW$为酉阵
+        \item $\MP, \MQ$为 Hermite半正定矩阵
+        \item \[ \MP^2 = \MA \MA^T \]
+        \item \[ \MQ^2 = \MA^T \MA \]
+    \end{itemize}
+
+    一般来说，极分解因子是不可交换的。
+\end{theorem}
+
+\begin{theorem}
+    $\ann$的极分解因子可交换的充要条件是$\MA$为\emph{为正规矩阵}。
+\end{theorem}
 
 \section{矩阵的同时对角化}
 \label{sec:矩阵的同时对角化}
@@ -134,8 +268,39 @@
 \subsection{Hermite矩阵和正规矩阵同时对角化}
 \label{sub:Hermite矩阵和正规矩阵同时对角化}
 
+\begin{theorem}
+    $\MA, \MB\,\text{is}\,n \times n$均为 \emph{Hermite 矩阵}，且 $\MB$ 为正定矩阵，则存在非奇异矩阵 $\MP$ 使得
+
+    \begin{gather}
+        \MA = \MP^T \Lambda \MP  \\
+        \MB = \MP^T \MP
+    \end{gather}
+
+    其中，$\Lambda = \diag\left(\lambda_1, \ldots, \lambda_n\right),$且$\lambda_i$为$\MA\MB^{-1}$的特征值。
+\end{theorem}
+
+\begin{theorem}
+    $\MA,\MB \,\text{is}\, n\times n$ 均为 \emph{Hermite 矩阵}，且 $\MB$非奇异，则存在非奇异矩阵$\MP$使得$\MP^T \MA \MP$和$\MA^T \MB \MP$均为对角矩阵的充要条件是$\MA\MB^{-1}$\emph{可对角化且其特征值均为实数}。
+\end{theorem}
+
+\begin{theorem}
+    $\MA,\MB \,\text{is}\, n\times n$ 均为\emph{正规矩阵}，则存在酉阵$\MU$使得$\MU^T\MA\MU$和$\MU^T\MB\MU$均为对角矩阵的充要条件是$\MA\MB=\MB\MA$。
+\end{theorem}
+
+\begin{theorem}
+    $\MA,\MB \,\text{is}\, n\times n$ 均为 \emph{Hermite 半正定矩阵}，则存在非奇异矩阵$\MP$，使得$\MP^T\MA\MP$和$\MA^T\MB\MP$均为对角矩阵。
+\end{theorem}
+
 \subsection{广义奇异值分解}
 \label{sub:广义奇异值分解}
+
+\begin{theorem}
+    $\amn,\, \MB \,\text{is}\, p \times n,$且$\MA$是瘦矩阵，则存在酉阵$\MU \, \text{is} \, m \times m$和$\MV \, \text{is} \, p \times p,$以及非奇异矩阵$\MQ \, \text{is} \, n \times n,$使得
+    \begin{gather}
+        \MU\MA\MQ = \left[\Sigma_A, O\right]  \\
+        \MV\MB\MQ = \left[\Sigma_B, O\right]
+    \end{gather}
+\end{theorem}
 
 \section{一些应用}
 \label{sec:一些应用}
